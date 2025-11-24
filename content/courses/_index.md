@@ -1,0 +1,7 @@
+---
+title: "Фотокурсы"
+description: "От базового уровня до продвинутого"
+bg_image: "/images/bg-courses.jpg"
+draft: false
+type: "course"
+---

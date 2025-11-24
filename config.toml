@@ -1,0 +1,30 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "SchoolNew: ОБучение фотографии"
+# theme = "wowchemy"
+enableRobotsTXT = true
+
+[params]
+  description = "Индивидуальное обучение фотографии"
+  author = "Ваше Имя"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Главная"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "courses"
+    name = "Курсы"
+    url = "/courses/"
+    weight = 2
+
+[pagination]
+  pagerSize = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

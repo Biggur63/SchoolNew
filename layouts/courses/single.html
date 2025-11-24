@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8">
+
+  <a href="{{ "/courses/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Все курсы</a>
+
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
+
+    {{ with .Params.summary }}
+      <p class="text-gray-700 mb-4">{{ . }}</p>
+    {{ end }}
+
+    {{ with .Params.duration }}
+      <p class="text-sm text-gray-500">Длительность: {{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{/* =======================================================================
+       Сбор модулей только для этого курса
+       Правила:
+       1) Читаем список slug'ов из frontmatter .Params.modules (если указан).
+       2) Затем добавляем страницы, физически лежащие в папке курса (content/courses/<course>/...).
+       3) Игнорируем страницы, у которых Params.level == "advanced".
+       4) Исключаем дубликаты по RelPermalink.
+     ======================================================================= */}}
+
+  {{ $page := . }}
+  {{ $courseDir := replace $page.File.Dir "\\" "/" }}
+  {{ $courseKey := $page.File.BaseFileName }}
+
+  {{ $collected := slice }}
+  {{ $perms := slice }}
+
+  {{/* 1) Модули из frontmatter (modules: [ "slug" ]) */}}
+  {{ with $page.Params.modules }}
+    {{ range . }}
+      {{ $slug := . | urlize }}
+      {{/* Пытаемся найти модуль в каталоге курса */}}
+      {{ $p := $.Site.GetPage (printf "courses/%s/%s" $courseKey $slug) }}
+      {{ if not $p }}
+        {{/* или как внешний модуль в content/modules/ */}}
+        {{ $p = $.Site.GetPage (printf "modules/%s" $slug) }}
+      {{ end }}
+      {{ if $p }}
+        {{ $rp := $p.RelPermalink }}
+        {{ if and (ne $rp $page.RelPermalink) (not (in $perms $rp)) (ne $p.Params.level "advanced") }}
+          {{ $collected = $collected | append $p }}
+          {{ $perms = $perms | append $rp }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 2) Физически лежащие в папке курса (подпапки) */}}
+  {{ range $.Site.RegularPages }}
+    {{ $fileDir := replace .File.Dir "\\" "/" }}
+    {{ if and (hasPrefix $fileDir $courseDir) (ne .RelPermalink $page.RelPermalink) (ne .Params.level "advanced") }}
+      {{ $rp := .RelPermalink }}
+      {{ if not (in $perms $rp) }}
+        {{ $collected = $collected | append . }}
+        {{ $perms = $perms | append $rp }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <section class="mt-8">
+    <h2 class="text-2xl font-semibold mb-4">Модули курса</h2>
+
+    {{ if eq (len $collected) 0 }}
+      <p class="text-gray-600">Для этого курса модули не найдены.</p>
+    {{ else }}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range sort $collected "Params.order" "asc" }}
+          {{ partial "course-card.html" . }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+
+</div>
+{{ end }}

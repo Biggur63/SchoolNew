@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+
+  {{ if .Content }}
+    <div class="prose max-w-none mb-6">{{ .Content }}</div>
+  {{ end }}
+
+  {{/* Показать все курсы (секция content/courses) */}}
+  {{ $courses := where .Site.RegularPages "Section" "courses" }}
+  {{ $courses = where $courses "Params.type" "in" (slice "course" "") }} {{/* фильтр, но безопасно */}}
+
+  {{ if gt (len $courses) 0 }}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range sort $courses "Params.order" "asc" }}
+        {{ partial "course-card.html" . }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="text-gray-600">Курсы не найдены.</p>
+  {{ end }}
+
+</div>
+{{ end }}

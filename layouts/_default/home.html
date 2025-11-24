@@ -1,0 +1,26 @@
+﻿{{ define "main" }}
+<div class="relative w-full h-full">
+
+  <!-- Фоновое изображение -->
+  <div class="absolute inset-0 z-0">
+    <img src="{{ .Params.bg_image }}" alt="Фон" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/40"></div> <!-- затемнение -->
+  </div>
+
+  <!-- Контент по центру -->
+  <div class="relative z-10 grid place-items-center min-h-screen text-center px-4">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 mt-0">{{ .Title }}</h1>
+      <p class="text-lg mb-6">{{ .Params.description }}</p>
+      <a href="/courses/"
+   class="inline-block text-white font-semibold px-6 py-3 rounded shadow-lg transition"
+   style="background-color:#6c0101;"
+   onmouseover="this.style.backgroundColor='#cb0000';"
+   onmouseout="this.style.backgroundColor='#810000';">
+   Перейти к курсам
+</a>
+    </div>
+  </div>
+
+</div>
+{{ end }}

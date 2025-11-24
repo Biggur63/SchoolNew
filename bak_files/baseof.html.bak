@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="{{ .Params.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <header class="bg-white shadow py-4 mb-8">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold">SchoolNew</a>
+      <nav>
+        <a href="/" class="mx-3 text-gray-700 hover:text-blue-600">Главная</a>
+        <a href='{{ "/courses/" | relURL }}' class="mx-3 text-gray-700 hover:text-blue-600">Курсы</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="bg-gray-100 mt-16 py-6 text-center text-gray-600">
+    © 2025 SchoolNew. Все права защищены.
+  </footer>
+</body>
+</html>
+

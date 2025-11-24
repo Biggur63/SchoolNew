@@ -1,0 +1,92 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8">
+
+  <a href="{{ "/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Назад</a>
+
+  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+
+  {{ if .Content }}
+    <div class="prose max-w-none mb-6">{{ .Content }}</div>
+  {{ end }}
+
+  {{/* Определяем: это страница курса? */}}
+  {{ $rel := .RelPermalink }}
+
+  {{ $isCoursePage := and (hasPrefix $rel "/courses/") (ne $rel "/courses/") }}
+
+  {{ if $isCoursePage }}
+
+    {{/* Удаляем финальный слэш совместимым способом */}}
+    {{ $trim := replace $rel "/" "" -1 | printf "/%s" }}
+
+    {{/* Разбиваем на части */}}
+    {{ $parts := split $trim "/" }}
+    {{ $courseKey := index $parts (sub (len $parts) 1) }}
+
+    {{/* Коллекция модулей */}}
+    {{ $collected := slice }}
+    {{ $perms := slice }}
+
+    {{/* 1. Модули из frontmatter */}}
+    {{ with .Params.modules }}
+      {{ range . }}
+        {{ $slug := . | urlize }}
+        {{ $p := $.Site.GetPage (printf "courses/%s/%s" $courseKey $slug) }}
+        {{ if not $p }}
+          {{ $p = $.Site.GetPage (printf "modules/%s" $slug) }}
+        {{ end }}
+
+        {{ if $p }}
+          {{ $rp := $p.RelPermalink }}
+          {{ if and (ne $rp $.RelPermalink) (not (in $perms $rp)) (ne $p.Params.level "advanced") }}
+            {{ $collected = $collected | append $p }}
+            {{ $perms = $perms | append $rp }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{/* 2. Физические подпапки курса */}}
+    {{ range $.Site.RegularPages }}
+      {{ if and (hasPrefix .RelPermalink (print "/courses/" $courseKey "/")) (ne .RelPermalink $.RelPermalink) (ne .Params.level "advanced") }}
+        {{ $rp := .RelPermalink }}
+        {{ if not (in $perms $rp) }}
+          {{ $collected = $collected | append . }}
+          {{ $perms = $perms | append $rp }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold mb-4">Модули курса</h2>
+
+      {{ if eq (len $collected) 0 }}
+        <p class="text-gray-600">Для этого курса модули не найдены.</p>
+      {{ else }}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ range sort $collected "Params.order" "asc" }}
+            {{ partial "course-card.html" . }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </section>
+
+  {{ else }}
+
+    {{/* НЕ страница курса → показываем список курсов */}}
+    {{ $courses := where .Site.RegularPages "Section" "courses" }}
+
+    {{ if gt (len $courses) 0 }}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range sort $courses "Params.order" "asc" }}
+          {{ partial "course-card.html" . }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="text-gray-600">Курсы не найдены.</p>
+    {{ end }}
+
+  {{ end }}
+
+</div>
+{{ end }}

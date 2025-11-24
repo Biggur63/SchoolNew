@@ -1,0 +1,24 @@
+---
+title: "Базовый курс фотографии"
+type: "courses"
+layout: "single"
+draft: false
+image: "/images/courses/basic-course/cover.jpg"
+summary: "Техника, композиция, проект."
+duration: "12 недель"
+level: "начальный"
+
+modules:
+  - "module-01-technical-basics"
+  - "module-02-light-color"
+  - "module-03-composition-i"
+  - "module-04-composition-ii"
+  - "module-05-visual-thinking"
+  - "module-06-project-series"
+
+allow_external_modules: false
+---
+
+Теория
+
+Завершающий модуль посвящён подготовке и реализации полного фотопроекта.

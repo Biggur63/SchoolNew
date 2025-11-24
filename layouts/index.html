@@ -1,0 +1,20 @@
+{{ define "main" }}
+<!-- Родительский блок, растянутый на весь экран -->
+<div class="relative w-full min-h-screen">
+
+  <!-- Фоновое изображение через CSS background -->
+  <div class="absolute inset-0 bg-black/40"
+       style="background: url('{{ .Params.bg_image }}') center center / cover no-repeat;">
+  </div>
+
+  <!-- Контент поверх фонового изображения -->
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-white text-center px-4">
+    <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
+    <p class="text-lg mb-6">{{ .Params.description }}</p>
+    <a href="/courses/" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded shadow-lg transition">
+      Перейти к курсам
+    </a>
+  </div>
+
+</div>
+{{ end }}

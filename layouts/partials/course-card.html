@@ -1,0 +1,14 @@
+<div class="border rounded-lg shadow p-4 hover:shadow-md transition bg-white text-black">
+  <a href="{{ .RelPermalink }}">
+    {{ with .Params.image }}
+      <img src="{{ . }}" alt="" class="rounded mb-3 w-full object-cover">
+    {{ end }}
+    <h3 class="text-xl font-semibold mb-2">{{ .Title }}</h3>
+    {{ with .Params.summary }}
+      <p class="text-gray-700 text-sm mb-2">{{ . }}</p>
+    {{ end }}
+    {{ with .Params.duration }}
+      <p class="text-gray-500 text-xs">Длительность: {{ . }}</p>
+    {{ end }}
+  </a>
+</div>

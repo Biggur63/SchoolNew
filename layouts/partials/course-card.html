@@ -1,51 +1,58 @@
-{{- /* layouts/partials/course-card.html
-      Корректный partial для карточки курса/module.
-      Приоритет изображения:
-      1) page resource thumb* (bundle)
-      2) .Params.thumb
-      3) .Params.image
-      4) .Params.bg_image
-      5) плейсхолдер
-   */ -}}
+{{/* ---------------------------------------------------------
+   layouts/partials/course-card.html
+   Универсальный partial для карточки курса/module.
+
+   Приоритет изображений:
+   1) page resource thumb* (bundle)
+   2) .Params.thumb
+   3) .Params.image
+   4) .Params.bg_image
+   5) плейсхолдер
+---------------------------------------------------------- */}}
 
 {{- $p := . -}}
 
-{{- /* Если у страницы нет заголовка — не рендерим карточку */ -}}
-{{- if and $p.Title (ne $p.Title "") }}
+{{/* Если нет названия — не рендерим карточку */}}
+{{- if not $p.Title }}
+  {{- return -}}
+{{- end }}
 
 <article class="bg-white rounded shadow overflow-hidden">
 
-  {{/* Сначала пытаемся взять ресурс из bundle */}}
-  {{- with $r := $p.Resources.GetMatch "thumb*" }}
+  {{/* --- IMAGE BLOCK --- */}}
+  {{- $img := $p.Resources.GetMatch "thumb*" -}}
+
+  {{- if $img }}
     <a href="{{ $p.RelPermalink }}" class="block">
-      <img src="{{ $r.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+      <img src="{{ $img.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+    </a>
+
+  {{- else if $p.Params.thumb }}
+    <a href="{{ $p.RelPermalink }}" class="block">
+      <img src="{{ $p.Params.thumb }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+    </a>
+
+  {{- else if $p.Params.image }}
+    <a href="{{ $p.RelPermalink }}" class="block">
+      <img src="{{ $p.Params.image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+    </a>
+
+  {{- else if $p.Params.bg_image }}
+    <a href="{{ $p.RelPermalink }}" class="block">
+      <img src="{{ $p.Params.bg_image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
     </a>
 
   {{- else }}
-    {{/* Если ресурса нет — пробуем фронт-мэттеры */}}
-    {{- if $p.Params.thumb }}
-      <a href="{{ $p.RelPermalink }}" class="block">
-        <img src="{{ $p.Params.thumb }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-      </a>
-    {{- else if $p.Params.image }}
-      <a href="{{ $p.RelPermalink }}" class="block">
-        <img src="{{ $p.Params.image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-      </a>
-    {{- else if $p.Params.bg_image }}
-      <a href="{{ $p.RelPermalink }}" class="block">
-        <img src="{{ $p.Params.bg_image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-      </a>
-    {{- else }}
-      <a href="{{ $p.RelPermalink }}" class="block">
-        <div class="w-full h-44 bg-gray-100 flex items-center justify-center text-gray-400">
-          Нет изображения
-        </div>
-      </a>
-    {{- end }}
+    <a href="{{ $p.RelPermalink }}" class="block">
+      <div class="w-full h-44 bg-gray-100 flex items-center justify-center text-gray-400">
+        Нет изображения
+      </div>
+    </a>
   {{- end }}
 
+  {{/* --- TEXT BLOCK --- */}}
   <div class="p-4">
-    <h3 class="text-lg font-semibold mb-1">
+    <h3 class="text-xl text-gray-600 font-semibold mb-1">
       <a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.Title }}</a>
     </h3>
 
@@ -59,5 +66,3 @@
   </div>
 
 </article>
-
-{{- end }}

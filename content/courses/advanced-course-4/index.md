@@ -1,9 +1,9 @@
 ---
-title: "Работа со светом"
+title: "Продвинутый модуль 4"
 type: "courses"
 layout: "single"
 draft: false
-image: "/images/modules/advanced-01.jpg"
+image: "/images/modules/advanced-04.jpg"
 summary: "Работа со светом, съёмка в сложных условиях."
 duration: "2 недели"
 level: "средний"

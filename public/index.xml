@@ -72,10 +72,38 @@
       <description>&lt;p&gt;Краткое описание модуля и содержание.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Продвинутый курс фотографии 1</title>
-      <link>http://localhost:1313/courses/advanced-course-1/</link>
+      <title>Продвинутый модуль 2</title>
+      <link>http://localhost:1313/courses/advanced-course-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/courses/advanced-course-1/</guid>
+      <guid>http://localhost:1313/courses/advanced-course-2/</guid>
+      <description>Работа со светом, съёмка в сложных условиях.</description>
+    </item>
+    <item>
+      <title>Продвинутый модуль 3</title>
+      <link>http://localhost:1313/courses/advanced-course-3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/advanced-course-3/</guid>
+      <description>Работа со светом, съёмка в сложных условиях.</description>
+    </item>
+    <item>
+      <title>Продвинутый модуль 4</title>
+      <link>http://localhost:1313/courses/advanced-course-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/advanced-course-4/</guid>
+      <description>Работа со светом, съёмка в сложных условиях.</description>
+    </item>
+    <item>
+      <title>Продвинутый модуль 5</title>
+      <link>http://localhost:1313/courses/advanced-course-5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/advanced-course-5/</guid>
+      <description>Работа со светом, съёмка в сложных условиях.</description>
+    </item>
+    <item>
+      <title>Продвинутый модуль 6</title>
+      <link>http://localhost:1313/courses/advanced-course-6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/advanced-course-6/</guid>
       <description>Работа со светом, съёмка в сложных условиях.</description>
     </item>
     <item>
@@ -84,6 +112,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/courses/basic-course/module-06-project-series/</guid>
       <description>&lt;p&gt;Создание итогового фотопроекта и подготовка серии работ.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Завершающий модуль посвящён подготовке и реализации полного фотопроекта. Студент учится планировать съёмочную сессию так, чтобы отснять материал, из которого получится целая история: от мудборда и референсов до логистики и постобработки.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Студент учится планировать съёмочную сессию так, чтобы отснять материал, из которого получится целая история. &amp;hellip; На основе мудборда и референсов фиксируются ключевые ракурсы, желаемая цветовая гамма и предполагаемый ритм съёмки. Проводится логистика: выбор времени (лучший свет), подготовка оборудования (камеры, объективы 35/50/85/135 мм), ассистент/рефлектор, резервы карт памяти и батарей.» :contentReference[oaicite:12]{index=12}&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа со светом</title>
+      <link>http://localhost:1313/courses/advanced-course-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/advanced-course-1/</guid>
+      <description>Работа со светом, съёмка в сложных условиях.</description>
     </item>
     <item>
       <title>Свет и цвет</title>

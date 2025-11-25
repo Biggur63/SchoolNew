@@ -1,123 +1,16 @@
 {{ define "main" }}
-<div style="font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;max-width:1100px;margin:20px auto;padding:20px;">
 
-  <a href="{{ "/" | relURL }}" class="inline-block text-sm mb-4" style="color:#0b63d6;">← Назад</a>
+<div class="container mx-auto px-4 py-8">
 
-  <h1 style="font-size:28px;margin:8px 0 12px;">DEBUG: {{ .Title }}</h1>
+  <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
 
-  <div style="background:#fff8e1;border:1px solid #f1c40f;padding:12px;margin:12px 0;">
-    <strong>Page diagnostics</strong>
-    <ul>
-      <li><strong>.Kind:</strong> {{ .Kind }}</li>
-      <li><strong>.Type:</strong> {{ .Type }}</li>
-      <li><strong>.Layout:</strong> {{ .Layout }}</li>
-      <li><strong>.File.Path:</strong> {{ .File.Path }}</li>
-      <li><strong>.File.Dir:</strong> {{ .File.Dir }}</li>
-      <li><strong>.Section:</strong> {{ .Section }}</li>
-      <li><strong>.RelPermalink:</strong> {{ .RelPermalink }}</li>
-      <li><strong>Frontmatter modules:</strong>
-        {{ with .Params.modules }}
-          <pre style="white-space:pre-wrap;margin:6px 0;padding:6px;background:#fafafa;border-radius:4px;">{{ delimit . ", " }}</pre>
-        {{ else }}
-          <em>none</em>
-        {{ end }}
-      </li>
-      <li><strong>allow_external_modules:</strong> {{ with .Params.allow_external_modules }}{{ . }}{{ else }}false{{ end }}</li>
-    </ul>
-  </div>
-
-  {{/* собираем кандидатов модулей точно так, как мы хотим их видеть */}}
-  {{ $page := . }}
-  {{ $courseDir := replace $page.File.Dir "\\" "/" }}
-  <div style="background:#eef6ff;border:1px solid #b6d4ff;padding:12px;margin:12px 0;">
-    <strong>Candidate pages inside course directory (all .Site.RegularPages with File.Dir starting with courseDir)</strong>
-    <ul>
-      {{ $found := false }}
-      {{ range $.Site.RegularPages }}
-        {{ $fileDir := replace .File.Dir "\\" "/" }}
-        {{ if hasPrefix $fileDir $courseDir }}
-          {{ $found = true }}
-          <li>
-            <strong>{{ .RelPermalink }}</strong>
-            — File.Dir='{{ .File.Dir }}'
-            — params.type='{{ with .Params.type }}{{ . }}{{ else }}(none){{ end }}'
-            — params.level='{{ with .Params.level }}{{ . }}{{ else }}(none){{ end }}'
-            — draft='{{ .Draft }}'
-          </li>
-        {{ end }}
-      {{ end }}
-      {{ if not $found }}
-        <li><em>Ни одной страницы в пределах {{ $courseDir }} не найдено</em></li>
-      {{ end }}
-    </ul>
-  </div>
-
-  {{/* Теперь попытка собрать $collected по правилам: modules frontmatter + дочерние файлы в директории */}}
-  {{ $collected := slice }}
-  {{ $perms := slice }}
-
-  {{/* 1) Явные модули из frontmatter */}}
-  {{ with $page.Params.modules }}
-    {{ range . }}
-      {{ $slug := . | urlize }}
-      {{ $p := $.Site.GetPage (printf "courses/%s/%s" $page.File.BaseFileName $slug) }}
-      {{ if not $p }}
-        {{ $p = $.Site.GetPage (printf "modules/%s" $slug) }}
-      {{ end }}
-      {{ if $p }}
-        {{ $rp := $p.RelPermalink }}
-        {{ if and (ne $rp $page.RelPermalink) (not (in $perms $rp)) }}
-          {{ $collected = $collected | append $p }}
-          {{ $perms = $perms | append $rp }}
-        {{ end }}
-      {{ end }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range where .Pages "Title" "ne" "" }}
+      {{/* Используем partial если он есть, иначе встроенная карточка выше (courses/list.html) будет работать */}}
+      {{ partial "course-card.html" . }}
     {{ end }}
-  {{ end }}
-
-  {{/* 2) Дочерние страницы (в пределах папки курса) */}}
-  {{ range $.Site.RegularPages }}
-    {{ $fileDir := replace .File.Dir "\\" "/" }}
-    {{ if and (hasPrefix $fileDir $courseDir) (ne .RelPermalink $page.RelPermalink) }}
-      {{ $rp := .RelPermalink }}
-      {{ if not (in $perms $rp) }}
-        {{ $collected = $collected | append . }}
-        {{ $perms = $perms | append $rp }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  <div style="background:#f0fff4;border:1px solid #bfecc3;padding:12px;margin:12px 0;">
-    <strong>$collected (found modules)</strong>
-    <ul>
-      {{ if eq (len $collected) 0 }}
-        <li><em>переменная $collected пуста</em></li>
-      {{ else }}
-        {{ range $collected }}
-          <li>{{ .RelPermalink }} — File.Dir='{{ .File.Dir }}' — params.level='{{ with .Params.level }}{{ . }}{{ else }}(none){{ end }}'</li>
-        {{ end }}
-      {{ end }}
-    </ul>
-  </div>
-
-  {{/* Также показываем, какие шаблоны доступны и какие используются (простая проверка) */}}
-  <div style="background:#fff;border:1px solid #ddd;padding:12px;margin:12px 0;">
-    <strong>Available templates (quick check)</strong>
-    <ul>
-      <li>layouts/section/courses.html — <em>this file</em></li>
-      <li>layouts/courses/list.html — {{ if (fileExists "layouts/courses/list.html") }}<strong>exists</strong>{{ else }}<em>missing</em>{{ end }}</li>
-      <li>layouts/courses/single.html — {{ if (fileExists "layouts/courses/single.html") }}<strong>exists</strong>{{ else }}<em>missing</em>{{ end }}</li>
-      <li>layouts/course/* — {{ if (fileExists "layouts/course/single.html") }}<strong>layouts/course exists</strong>{{ else }}<em>layouts/course missing</em>{{ end }}</li>
-      <li>layouts/_default/list.html — {{ if (fileExists "layouts/_default/list.html") }}<strong>exists</strong>{{ else }}<em>missing</em>{{ end }}</li>
-    </ul>
-  </div>
-
-  <div style="margin-top:18px;">
-    <strong>Инструкция</strong>
-    <ol>
-      <li>Сделайте перезапуск Hugo: <code>hugo server -D --logLevel info --printUnusedTemplates --printPathWarnings</code></li>
-      <li>Скопируйте и пришлите сюда HTML страницы <code>/courses/basic-course/</code> (или содержимое маркированных секций debug, которые вы увидите).</li>
-    </ol>
   </div>
 
 </div>
+
 {{ end }}

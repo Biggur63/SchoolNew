@@ -1,24 +1,64 @@
 {{ define "main" }}
+
 <div class="container mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
 
-  {{ if .Content }}
-    <div class="prose max-w-none mb-6">{{ .Content }}</div>
-  {{ end }}
+  <h1 class="text-3xl font-bold mb-6">Курсы</h1>
 
-  {{/* Показать все курсы (секция content/courses) */}}
-  {{ $courses := where .Site.RegularPages "Section" "courses" }}
-  {{ $courses = where $courses "Params.type" "in" (slice "course" "") }} {{/* фильтр, но безопасно */}}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-  {{ if gt (len $courses) 0 }}
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ range sort $courses "Params.order" "asc" }}
-        {{ partial "course-card.html" . }}
-      {{ end }}
-    </div>
-  {{ else }}
-    <p class="text-gray-600">Курсы не найдены.</p>
-  {{ end }}
+    {{/* Берем только страницы с непустым Title */}}
+    {{ $pages := where .Pages "Title" "ne" "" }}
+
+    {{ range $p := $pages }}
+
+      <article class="p-4 rounded border shadow overflow-hidden bg-white">
+
+        {{/* Логика выбора картинки — без переменных внутри with */}}
+
+        {{ if $p.Resources.GetMatch "thumb*" }}
+          {{ $r := $p.Resources.GetMatch "thumb*" }}
+          <a href="{{ $p.RelPermalink }}" class="block">
+            <img src="{{ $r.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover mb-3 rounded">
+          </a>
+
+        {{ else if $p.Params.thumb }}
+          <a href="{{ $p.RelPermalink }}" class="block">
+            <img src="{{ $p.Params.thumb }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover mb-3 rounded">
+          </a>
+
+        {{ else if $p.Params.image }}
+          <a href="{{ $p.RelPermalink }}" class="block">
+            <img src="{{ $p.Params.image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover mb-3 rounded">
+          </a>
+
+        {{ else if $p.Params.bg_image }}
+          <a href="{{ $p.RelPermalink }}" class="block">
+            <img src="{{ $p.Params.bg_image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover mb-3 rounded">
+          </a>
+
+        {{ else }}
+          <a href="{{ $p.RelPermalink }}" class="block">
+            <div class="w-full h-44 bg-gray-100 flex items-center justify-center mb-3 text-gray-400">
+              Нет изображения
+            </div>
+          </a>
+
+        {{ end }}
+
+        <h3 class="text-xl font-semibold mb-2">
+          <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+        </h3>
+
+        {{ with $p.Params.summary }}
+          <p class="text-gray-600">{{ . }}</p>
+        {{ end }}
+
+      </article>
+
+    {{ end }}
+
+  </div>
 
 </div>
+
 {{ end }}

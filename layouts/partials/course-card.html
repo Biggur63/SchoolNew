@@ -1,14 +1,63 @@
-<div class="border rounded-lg shadow p-4 hover:shadow-md transition bg-white text-black">
-  <a href="{{ .RelPermalink }}">
-    {{ with .Params.image }}
-      <img src="{{ . }}" alt="" class="rounded mb-3 w-full object-cover">
-    {{ end }}
-    <h3 class="text-xl font-semibold mb-2">{{ .Title }}</h3>
-    {{ with .Params.summary }}
-      <p class="text-gray-700 text-sm mb-2">{{ . }}</p>
-    {{ end }}
-    {{ with .Params.duration }}
-      <p class="text-gray-500 text-xs">Длительность: {{ . }}</p>
-    {{ end }}
-  </a>
-</div>
+{{- /* layouts/partials/course-card.html
+      Корректный partial для карточки курса/module.
+      Приоритет изображения:
+      1) page resource thumb* (bundle)
+      2) .Params.thumb
+      3) .Params.image
+      4) .Params.bg_image
+      5) плейсхолдер
+   */ -}}
+
+{{- $p := . -}}
+
+{{- /* Если у страницы нет заголовка — не рендерим карточку */ -}}
+{{- if and $p.Title (ne $p.Title "") }}
+
+<article class="bg-white rounded shadow overflow-hidden">
+
+  {{/* Сначала пытаемся взять ресурс из bundle */}}
+  {{- with $r := $p.Resources.GetMatch "thumb*" }}
+    <a href="{{ $p.RelPermalink }}" class="block">
+      <img src="{{ $r.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+    </a>
+
+  {{- else }}
+    {{/* Если ресурса нет — пробуем фронт-мэттеры */}}
+    {{- if $p.Params.thumb }}
+      <a href="{{ $p.RelPermalink }}" class="block">
+        <img src="{{ $p.Params.thumb }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+      </a>
+    {{- else if $p.Params.image }}
+      <a href="{{ $p.RelPermalink }}" class="block">
+        <img src="{{ $p.Params.image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+      </a>
+    {{- else if $p.Params.bg_image }}
+      <a href="{{ $p.RelPermalink }}" class="block">
+        <img src="{{ $p.Params.bg_image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
+      </a>
+    {{- else }}
+      <a href="{{ $p.RelPermalink }}" class="block">
+        <div class="w-full h-44 bg-gray-100 flex items-center justify-center text-gray-400">
+          Нет изображения
+        </div>
+      </a>
+    {{- end }}
+  {{- end }}
+
+  <div class="p-4">
+    <h3 class="text-lg font-semibold mb-1">
+      <a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.Title }}</a>
+    </h3>
+
+    {{- with $p.Params.summary }}
+      <p class="text-sm text-gray-600 mb-2">{{ . }}</p>
+    {{- end }}
+
+    {{- with $p.Params.duration }}
+      <p class="text-xs text-gray-500">Длительность: {{ . }}</p>
+    {{- end }}
+  </div>
+
+</article>
+
+{{- end }}

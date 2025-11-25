@@ -1,9 +1,8 @@
-﻿---
+---
 title: "Базовый курс фотографии"
-type: "course"
+type: "courses"
 layout: "single"
 draft: false
-
 image: "/images/courses/basic-course/cover.jpg"
 summary: "Техника, композиция, проект."
 duration: "12 недель"

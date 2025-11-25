@@ -7,6 +7,7 @@ image: "/images/modules/advanced-02.jpg"
 summary: "Работа со светом, съёмка в сложных условиях."
 duration: "2 недели"
 level: "средний"
+order: 2
 
 modules:
   - "mod-01"

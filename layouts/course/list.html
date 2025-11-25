@@ -1,23 +1,59 @@
 {{/* layouts/course/list.html
-   Список курсов — рендерит карточки детей раздела courses.
-   Использует partial "course-card.html" для единообразного вывода карточки.
+   Выводит основной курс (basic-course) сверху, затем страницы с Params.order (sorted by numeric order),
+   затем все остальные. Полная замена файла.
 */}}
 
 {{ define "main" }}
 
 <div class="container mx-auto px-4 py-8">
 
-  <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+  <h1 class="text-3xl font-bold mb-6 text-center">{{ .Title }}</h1>
 
+  {{/* Берём страницы раздела (исключаем пустые Title) */}}
+  {{ $pages := where .Pages "Title" "ne" "" }}
+
+  {{/* --- Найдём основной курс (по File.Dir как в вашей структуре) --- */}}
+  {{ $mainCandidates := where $pages "File.Dir" "eq" "courses\\basic-course\\" }}
+  {{ if eq (len $mainCandidates) 0 }}
+    {{ $mainCandidates = where $pages "File.Path" "in" "basic-course" }}
+  {{ end }}
+  {{ $main := first 1 $mainCandidates }}
+
+  {{/* Список остальных (без main) */}}
+  {{ $others := $pages }}
+  {{ if gt (len $main) 0 }}
+    {{ $mainPage := index $main 0 }}
+    {{ $others = where $pages "Permalink" "ne" $mainPage.Permalink }}
+  {{ end }}
+
+  {{/* --- FEATURED: основной курс по центру (если есть) --- */}}
+  {{ if gt (len $main) 0 }}
+    <div class="flex justify-center mb-8">
+      <div class="w-full md:w-2/3 lg:w-1/2">
+        {{ partial "course-card.html" (index $main 0) }}
+      </div>
+    </div>
+  {{ end }}
+
+  {{/* --- Выбор страниц, у которых задан Params.order (не nil) --- */}}
+  {{/* Используем where ... "ne" nil */}}
+  {{ $withOrder := where $others "Params.order" "ne" nil }}
+
+  {{/* Отсортируем эти страницы по Params.order (по возрастанию). Если order задан как строка, Hugo попытается сравнить как строки — поэтому важно ставить число. */}}
+  {{ $withOrderSorted := sort $withOrder "Params.order" "asc" }}
+
+  {{/* Остальные страницы без order */}}
+  {{ $withoutOrder := where $others "Params.order" "eq" nil }}
+
+  {{/* --- Рендер: сначала отсортированные по order, затем остальные --- */}}
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-    {{/* Исключаем пустые страницы (чтобы не рендерить .bak / _tmp файлы с пустыми Title) */}}
-    {{ $pages := where .Pages "Title" "ne" "" }}
-
-    {{ range $p := $pages }}
+    {{ range $p := $withOrderSorted }}
       {{ partial "course-card.html" $p }}
     {{ end }}
 
+    {{ range $p := $withoutOrder }}
+      {{ partial "course-card.html" $p }}
+    {{ end }}
   </div>
 
 </div>

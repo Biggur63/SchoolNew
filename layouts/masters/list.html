@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="masters-page">
+  <h1>{{ .Title }}</h1>
+
+  {{ .Content }}
+
+  {{ "<photomasters />" | .RenderString }}
+</section>
+{{ end }}

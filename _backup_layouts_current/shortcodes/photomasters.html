@@ -1,0 +1,10 @@
+{{/* photomasters shortcode */}}
+<div class="masters-grid">
+  {{ range .Site.Data.masters }}
+    <div class="master-card">
+      <img src="{{ .image }}" alt="{{ .name }}">
+      <h3>{{ .name }}</h3>
+      <p>{{ .description }}</p>
+    </div>
+  {{ end }}
+</div>

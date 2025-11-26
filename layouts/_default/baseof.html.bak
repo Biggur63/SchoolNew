@@ -25,7 +25,6 @@
       <!-- Навигация -->
       <nav class="flex items-center space-x-6 pr-4">
         <a href="/" class="text-white hover:text-indigo-400">Главная</a>
-        <a href='{{ "/masters/" | relURL }}' class="text-white hover:text-indigo-400">Мастера фотографии</a>
         <a href='{{ "/courses/" | relURL }}' class="text-white hover:text-indigo-400">Курсы</a>
       </nav>
     </div>
@@ -46,4 +45,3 @@
 
 </body>
 </html>
-

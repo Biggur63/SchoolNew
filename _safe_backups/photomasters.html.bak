@@ -1,0 +1,33 @@
+﻿{{ $list := site.Data.list-of-masters }}
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6">Мастера фотографии</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range $list }}
+      <article class="bg-white rounded shadow p-4">
+        {{ with .image }}
+          <a href="{{ with .link }}{{ . }}{{ else }}#{{ end }}" class="block mb-3">
+            <img src="{{ . }}" alt="{{ $.name }}" class="w-full h-44 object-cover rounded">
+          </a>
+        {{ end }}
+
+        <h3 class="text-xl font-semibold mb-1">{{ .name }}</h3>
+
+        {{ with .born }}
+          <p class="text-sm text-gray-600">Родился: {{ . }}</p>
+        {{ end }}
+
+        {{ with .died }}
+          <p class="text-sm text-gray-600">Умер: {{ . }}</p>
+        {{ end }}
+
+        {{ with .link }}
+          <p class="mt-3">
+            <a href="{{ . }}" target="_blank" class="text-indigo-600 underline">Смотреть работы</a>
+          </p>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</div>

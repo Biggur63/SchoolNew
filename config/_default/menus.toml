@@ -1,0 +1,19 @@
+# Главное меню для темы Blowfish
+
+[[main]]
+identifier = "home"
+name = "Главная"
+url = "/"
+weight = 1
+
+[[main]]
+identifier = "masters"
+name = "Мастера фотографии"
+url = "/masters/"
+weight = 2
+
+[[main]]
+identifier = "courses"
+name = "Курсы"
+url = "/courses/"
+weight = 3

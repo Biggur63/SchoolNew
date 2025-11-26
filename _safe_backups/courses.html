@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<div class="container mx-auto px-4 py-8">
+
+  <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range where .Pages "Title" "ne" "" }}
+      {{/* Используем partial если он есть, иначе встроенная карточка выше (courses/list.html) будет работать */}}
+      {{ partial "course-card.html" . }}
+    {{ end }}
+  </div>
+
+</div>
+
+{{ end }}

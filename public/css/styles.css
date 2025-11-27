@@ -1,0 +1,7 @@
+﻿:root{--max:1000px;--muted:#666;}
+body{font-family:Arial,system-ui;margin:0;color:#222;}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px;}
+.site-header{background:#111;color:#fff;padding:12px 0;}
+.hero{padding:40px 0;}
+.courses-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.course-item{background:#fafafa;padding:18px;border-radius:8px;}

@@ -1,9 +1,184 @@
 {{ define "main" }}
-<section class="masters-page">
-  <h1>{{ .Title }}</h1>
 
-  {{ .Content }}
+<style>
+/* Кнопка "вверх" — минимальный прямоугольник */
+#scroll-up-btn {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  background: #323235;      /* чуть светлее фона */
+  color: #818CF8;           /* indigo-400 — цвет ссылок */
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.22s ease, background 0.15s ease;
+}
+#scroll-up-btn:hover { background: #444448; }
 
-  {{ "<photomasters />" | .RenderString }}
-</section>
+/* Скрываем полосы прокрутки в контейнере */
+#masters-scroll {
+  scrollbar-width: none;
+}
+#masters-scroll::-webkit-scrollbar { display: none; }
+
+/* Стили фиксированного H1 */
+#page-title.fixed {
+  position: fixed;
+  z-index: 900;
+  left: 0;
+  right: 0;
+  background: transparent;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+#masters-scroll.with-title-offset {
+  /* JS выставляет margin-top */
+}
+</style>
+
+<div class="container mx-auto px-4" id="masters-container">
+
+  <div id="masters-top"></div>
+
+  <!-- Заголовок страницы -->
+  <h1 id="page-title" class="text-3xl font-bold mb-4 text-gray-100">
+    {{ .Title }}
+  </h1>
+
+  <!-- Контейнер таблицы -->
+  <div id="masters-scroll" class="overflow-y-auto" style="padding-right:8px;">
+    {{ .Content }}
+  </div>
+
+</div>
+
+<!-- Кнопка вверх -->
+<div id="scroll-up-btn" aria-label="Вверх" role="button">↑</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollBox = document.getElementById('masters-scroll');
+  const btn = document.getElementById('scroll-up-btn');
+  const footer = document.querySelector('footer');
+  const pageTitle = document.getElementById('page-title');
+  const container = document.getElementById('masters-container');
+  const spacerId = 'masters-footer-spacer';
+
+  /* --- Блокируем прокрутку окна --- */
+  function disableWindowScroll() {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+
+  /* --- Фиксируем footer --- */
+  function fixFooter() {
+    if (!footer) return;
+    if (document.getElementById(spacerId)) return;
+
+    const rect = footer.getBoundingClientRect();
+    const footerH = Math.ceil(rect.height);
+
+    const spacer = document.createElement('div');
+    spacer.id = spacerId;
+    spacer.style.width = '100%';
+    spacer.style.height = footerH + 'px';
+    spacer.style.display = 'block';
+    footer.parentNode.insertBefore(spacer, footer);
+
+    footer.style.position = 'fixed';
+    footer.style.left = '0';
+    footer.style.right = '0';
+    footer.style.bottom = '0';
+    footer.style.zIndex = '800';
+  }
+
+  /* --- Фиксация H1 под шапкой сайта --- */
+  function fixPageTitle() {
+    const siteHeader = document.querySelector('header');
+    const headerH = siteHeader ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
+
+    const contRect = container.getBoundingClientRect();
+    const left = Math.ceil(contRect.left);
+    const width = Math.ceil(contRect.width);
+
+    pageTitle.classList.add('fixed');
+    pageTitle.style.top = headerH + 'px';
+    pageTitle.style.left = left + 'px';
+    pageTitle.style.width = width + 'px';
+
+    pageTitle.style.background =
+      window.getComputedStyle(container).backgroundColor || '#000';
+    pageTitle.style.padding = '0.5rem 0';
+    pageTitle.style.boxSizing = 'border-box';
+
+    const titleH = Math.ceil(pageTitle.getBoundingClientRect().height);
+    scrollBox.style.marginTop = titleH + 'px';
+    scrollBox.classList.add('with-title-offset');
+  }
+
+  /* --- Высота контейнера таблицы --- */
+  function updateHeight() {
+    if (!scrollBox) return;
+
+    const footerRect = footer ? footer.getBoundingClientRect() : { height: 0 };
+    const footerH = Math.ceil(footerRect.height || 0);
+
+    const windowH = window.innerHeight;
+    const containerTop = Math.ceil(scrollBox.getBoundingClientRect().top);
+
+    const newH = windowH - containerTop - footerH;
+    scrollBox.style.height = (newH > 120 ? newH : 120) + 'px';
+  }
+
+  /* --- Кнопка вверх --- */
+  function onScrollBox() {
+    if (!btn || !scrollBox) return;
+    if (scrollBox.scrollTop > 80) {
+      btn.style.display = 'block';
+      btn.style.opacity = '1';
+    } else {
+      btn.style.opacity = '0';
+      setTimeout(() => { if (scrollBox.scrollTop <= 80) btn.style.display = 'none'; }, 220);
+    }
+  }
+
+  disableWindowScroll();
+  if (footer) fixFooter();
+  fixPageTitle();
+  updateHeight();
+
+  window.addEventListener('resize', function () {
+    const contRect = container.getBoundingClientRect();
+    pageTitle.style.left = Math.ceil(contRect.left) + 'px';
+    pageTitle.style.width = Math.ceil(contRect.width) + 'px';
+    updateHeight();
+  });
+
+  window.addEventListener('orientationchange', () => setTimeout(updateHeight, 80));
+
+  window.addEventListener('scroll', updateHeight);
+
+  if (scrollBox) {
+    scrollBox.addEventListener('scroll', onScrollBox);
+    onScrollBox();
+  }
+
+  if (btn) {
+    btn.addEventListener('click', function () {
+      if (!scrollBox) return;
+      scrollBox.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(onScrollBox, 300);
+    });
+  }
+
+  setTimeout(() => { if (footer) fixFooter(); fixPageTitle(); updateHeight(); }, 200);
+  setTimeout(updateHeight, 600);
+});
+</script>
+
 {{ end }}

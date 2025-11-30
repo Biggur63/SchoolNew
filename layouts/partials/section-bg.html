@@ -1,0 +1,12 @@
+{{/* layouts/partials/section-bg.html
+   Возвращает строку для атрибута style.
+   Вход: dict {"bg": "<путь>", "dim": "<альфа>"}.
+*/}}
+
+{{ $bg := .bg }}
+{{ $dim := .dim }}
+{{ if not $dim }}{{ $dim = "0.45" }}{{ end }}
+
+{{ if $bg }}
+  {{ printf "background: linear-gradient(rgba(0,0,0,%s), rgba(0,0,0,%s)), url('%s') center center / cover no-repeat;" $dim $dim $bg }}
+{{ end }}

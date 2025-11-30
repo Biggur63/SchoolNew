@@ -1,16 +1,48 @@
 ﻿{{ define "main" }}
-<div class="container mx-auto px-4 py-8">
-  <a href="{{ "/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Назад</a>
+{{ if .Params.bg_image }}
+<!-- Контейнер заполняет доступную высоту main (h-full) -->
+<div class="relative w-full h-full">
 
-  <header class="mb-6">
-    <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
-    {{ with .Params.summary }}
-      <p class="text-gray-700 mb-4">{{ . }}</p>
-    {{ end }}
-  </header>
+  <!-- Фон — абсолютный слой, заполняет весь контейнер main -->
+  <div class="absolute inset-0 bg-black/40"
+       style="background: url('{{ .Params.bg_image }}') center center / cover no-repeat;">
+  </div>
 
-  <div class="prose max-w-none mb-6">
-    {{ .Content }}
+  <!-- Контент поверх фонового слоя; занимает всю высоту контейнера.
+       Центрируем содержимое вертикально, чтобы оно было видно между header и footer -->
+  <div class="relative z-10 container mx-auto px-4 py-8 text-white h-full flex flex-col justify-center">
+    <a href="{{ "/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Назад</a>
+
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
+      {{ with .Params.summary }}
+        <p class="text-white mb-4">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <div class="prose max-w-none mb-6">
+      {{ .Content }}
+    </div>
+  </div>
+
+</div>
+{{ else }}
+<!-- Без фона используем обычный контейнер, но сохраняем высоту -->
+<div class="w-full h-full flex items-center justify-center">
+  <div class="container mx-auto px-4 py-8">
+    <a href="{{ "/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Назад</a>
+
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
+      {{ with .Params.summary }}
+        <p class="text-gray-200 mb-4">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <div class="prose max-w-none mb-6">
+      {{ .Content }}
+    </div>
   </div>
 </div>
+{{ end }}
 {{ end }}

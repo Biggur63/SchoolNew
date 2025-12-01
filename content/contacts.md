@@ -1,7 +1,8 @@
 ---
 title: "Контакты"
 description: "Как с нами связаться"
-bg_image: "/images/bg-main.jpg"
+bg_img: "/images/bg-main.jpg"
+bg_dim: 0.45
 draft: false
 ---
 

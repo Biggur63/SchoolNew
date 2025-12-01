@@ -11,38 +11,103 @@
 
   
   <link href="/css/typography.css" rel="stylesheet">
-</head>
-
-<body class="bg-gray-900 font-sans m-0 text-gray-100 h-screen flex flex-col overflow-hidden">
 
   
-  <header class="fixed top-0 left-0 right-0 z-30 bg-gray-900/95 backdrop-blur-sm shadow h-16">
-    
-    <div class="absolute left-0 top-0 h-16 flex items-center pl-4">
-      <a href="/" class="flex items-center">
-        <img src="/images/logo.png" alt="SchoolNew: ОБучение фотографии" class="h-12 md:h-16 w-auto">
-      </a>
-    </div>
 
-    
-    <div class="absolute right-0 top-0 h-16 flex items-center pr-4">
-      <nav class="flex items-center space-x-6">
+  
+  
+
+  
+  
+
+  <style>
+     
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.4),
+          rgba(0,0,0,0.4)
+        ),
+        url('/images/default-bg.jpg') center center / cover no-repeat;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+     
+    body > * {
+      position: relative;
+      z-index: 10;
+    }
+
+     
+    header {
+      z-index: 30;
+    }
+
+     
+    #mobile-menu {
+      z-index: 9999 !important;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-900 font-sans m-0 text-gray-100 h-screen flex flex-col">
+
+  
+  <header class="fixed top-0 left-0 right-0 z-30 bg-gray-900/95 backdrop-blur-sm shadow">
+    <div class="container mx-auto flex items-center justify-between h-16 px-4">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="SchoolNew: ОБучение фотографии" class="h-10 md:h-12 w-auto">
+        </a>
+      </div>
+
+      
+      <nav class="hidden md:flex items-center space-x-6">
         <a href="/" class="text-white hover:text-indigo-400">Главная</a>
         <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
         <a href='/courses/' class="text-white hover:text-indigo-400">Курсы</a>
         <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
       </nav>
-    </div>
 
-    
-    <div class="container mx-auto h-16 flex items-center justify-center px-4">
       
-      <div class="sr-only">SchoolNew: ОБучение фотографии</div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" aria-expanded="false" aria-label="Открыть меню"
+                class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <svg id="hamburger-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="hamburger-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
   
-  <main class="flex-1 relative pt-16">
+  <div id="mobile-menu" class="md:hidden hidden bg-gray-900 text-white rounded shadow-lg"
+       style="position:fixed; top:4rem; right:1rem; width:max-content; min-width:8rem;
+              max-width:calc(100% - 2rem); box-shadow:0 8px 24px rgba(0,0,0,0.6);
+              border:1px solid rgba(255,255,255,0.12);">
+    <div style="max-height: calc(100vh - 6rem); overflow-y:auto;" class="px-3 py-2">
+      <a href="/" class="block py-2 px-2 rounded hover:bg-gray-800">Главная</a>
+      <a href='/masters/' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
+      <a href='/courses/' class="block py-2 px-2 rounded hover:bg-gray-800">Курсы</a>
+      <a href='/contacts/' class="block py-2 px-2 rounded hover:bg-gray-800">Контакты</a>
+    </div>
+  </div>
+
+  
+  <main class="flex-1 relative pt-16 min-h-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
     
 
 
@@ -91,6 +156,78 @@
     © 2025 GurFoto.Ru Все права защищены.
   </footer>
 
+<script>
+(function(){
+  var btn = document.getElementById('mobile-menu-button');
+  var menu = document.getElementById('mobile-menu');
+  var openIcon = document.getElementById('hamburger-open');
+  var closeIcon = document.getElementById('hamburger-close');
+
+  if (!btn || !menu) return;
+
+  function isMenuOpen(){ return !menu.classList.contains('hidden'); }
+
+  function openMenu(){
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    if (openIcon && closeIcon) { openIcon.classList.add('hidden'); closeIcon.classList.remove('hidden'); }
+    adjustMenuPosition();
+  }
+
+  function closeMenu(){
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    if (openIcon && closeIcon) { openIcon.classList.remove('hidden'); closeIcon.classList.add('hidden'); }
+  }
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (isMenuOpen()) closeMenu(); else openMenu();
+  });
+
+  document.addEventListener('click', function(e){
+    if (!isMenuOpen()) return;
+    if (menu.contains(e.target) || btn.contains(e.target)) return;
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && isMenuOpen()) closeMenu();
+  });
+
+  window.addEventListener('resize', function(){
+    if (window.innerWidth >= 768 && isMenuOpen()) closeMenu();
+  });
+
+  function adjustMenuPosition(){
+    if (!menu || menu.classList.contains('hidden')) return;
+    var rect = menu.getBoundingClientRect();
+    var overflowLeft = rect.left < 8;
+    var overflowRight = rect.right > (window.innerWidth - 8);
+    if (overflowRight && !overflowLeft){
+      menu.style.right = '1rem';
+      menu.style.left = 'auto';
+      if (menu.getBoundingClientRect().right > window.innerWidth - 8){
+        menu.style.left = '1rem';
+        menu.style.right = 'auto';
+      }
+    } else if (overflowLeft){
+      menu.style.left = '1rem';
+      menu.style.right = 'auto';
+    } else {
+      menu.style.right = '1rem';
+      menu.style.left = 'auto';
+    }
+  }
+
+  window.addEventListener('resize', adjustMenuPosition);
+
+  new MutationObserver(function(){
+    if (isMenuOpen()) adjustMenuPosition();
+  }).observe(menu, { attributes: true, attributeFilter: ['class'] });
+
+})();
+</script>
+
 </body>
 </html>
-

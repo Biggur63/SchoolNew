@@ -2,6 +2,7 @@
 title: "Технические основы фотографии"
 type: "module"
 draft: false
+image: "cover.jpg"
 duration: "2 недели"
 module_number: 1
 parent_course: "basic-course"

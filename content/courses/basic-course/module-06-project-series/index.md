@@ -2,6 +2,7 @@
 title: "Проектная серия"
 type: "module"
 draft: false
+image: "cover.jpg"
 duration: "2 недели"
 module_number: 6
 parent_course: "basic-course"

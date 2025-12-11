@@ -6,7 +6,7 @@
 
   <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
 
-  <div class="prose max-w-none mb-8">
+  <div class="prose max-w-none mb-8 text-gray-200">
     {{ .Content }}
   </div>
 
@@ -15,24 +15,78 @@
   {{ $root := . }}
   {{ $modules := slice }}
 
-  {{ range .Params.modules }}
-    {{ $slug := . }}
-    {{ $p := $root.GetPage $slug }}
-    {{ if $p }}
-      {{ $modules = $modules | append $p }}
+  {{/* Собираем страницы модулей из front-matter .Params.modules.
+       Поддерживаем несколько форматов: 'slug', 'modules/slug' или полный путь.
+       Добавляем только объекты-страницы (Page). */}}
+  {{ range $i, $entry := .Params.modules }}
+    {{ $slug := $entry }}
+
+    {{/* Попытка 1: modules/slug */}}
+    {{ with $root.Site.GetPage (printf "modules/%s" $slug) }}
+      {{ if eq .Kind "page" }}
+        {{ $modules = $modules | append . }}
+      {{ end }}
+    {{ else }}
+      {{/* Попытка 2: прямо по значению */}}
+      {{ with $root.Site.GetPage $slug }}
+        {{ if eq .Kind "page" }}
+          {{ $modules = $modules | append . }}
+        {{ end }}
+      {{ else }}
+        {{/* Попытка 3: убираем ведущий слеш если есть */}}
+        {{ $clean := replace $slug "^/" "" }}
+        {{ with $root.Site.GetPage $clean }}
+          {{ if eq .Kind "page" }}
+            {{ $modules = $modules | append . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {{ range $modules }}
-      <div class="p-4 rounded border shadow">
-        <h3 class="font-semibold text-xl mb-2">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h3>
-        <p>{{ .Params.summary }}</p>
-      </div>
-    {{ end }}
-  </div>
+  {{ if eq (len $modules) 0 }}
+    <p class="text-gray-400">Модули не найдены — проверьте front-matter ключ <code>modules</code> в файле курса (обычно это список slug'ов модулей или путей типа "modules/slug").</p>
+  {{ else }}
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $modules }}
+        {{ $m := . }}
+
+        {{/* Убедимся, что $m — страница */}}
+        {{ if not (eq $m.Kind "page") }}
+          {{ continue }}
+        {{ end }}
+
+        <a href="{{ $m.RelPermalink }}" class="block p-4 rounded border shadow hover:shadow-lg transition group bg-gray-900">
+
+          {{/* Надёжный поиск ресурса: GetMatch возвращает одиночный ресурс (или nil), а не коллекцию */}}
+          {{ $imgFound := false }}
+          {{ if $m.Params.image }}
+            {{ $img := $m.Resources.GetMatch (printf "**/%s" $m.Params.image) }}
+            {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ $m.Title }}" class="w-full h-40 object-cover rounded mb-3">
+              {{ $imgFound = true }}
+            {{ end }}
+          {{ end }}
+
+          {{/* Если не найдено и в params указан путь (например /images/...) — используем его напрямую */}}
+          {{ if and (not $imgFound) $m.Params.image }}
+            <img src="{{ $m.Params.image }}" alt="{{ $m.Title }}" class="w-full h-40 object-cover rounded mb-3">
+          {{ end }}
+
+          <h3 class="font-semibold text-xl mb-2 group-hover:underline">{{ $m.Title }}</h3>
+          {{ with $m.Params.summary }}
+            <p class="text-gray-200">{{ . }}</p>
+          {{ else }}
+            <p class="text-gray-500">Краткое описание отсутствует</p>
+          {{ end }}
+
+        </a>
+
+      {{ end }}
+    </div>
+
+  {{ end }}
 
 </div>
 

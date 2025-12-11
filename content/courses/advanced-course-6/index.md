@@ -1,10 +1,10 @@
 ---
-title: "Продвинутый модуль 6"
+title: "Предметная съемка II"
 type: "courses"
 layout: "single"
 draft: false
 image: "/images/modules/advanced-06.jpg"
-summary: "Работа со светом, съёмка в сложных условиях."
+summary: "Макросъемка, food-съемка, съемка для каталогов"
 duration: "2 недели"
 level: "средний"
 order: 6

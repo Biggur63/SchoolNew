@@ -20,15 +20,15 @@ enableRobotsTXT = true
     weight = 1
 
   [[menu.main]]
-    identifier = "masters"
-    name = "Мастера фотографии"
-    url = "/masters/"
-    weight = 2
-
-  [[menu.main]]
     identifier = "courses"
     name = "Курсы"
     url = "/courses/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "masters"
+    name = "Мастера фотографии"
+    url = "/masters/"
     weight = 3
 
 [pagination]

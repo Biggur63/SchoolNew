@@ -2,19 +2,21 @@
 <html lang="ru">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
-  <title>Продвинутый модуль 2</title>
+  <title>Портрет</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
   
   <link href="/css/typography.css" rel="stylesheet">
 
   
-
   
+  <link rel="stylesheet" href="/css/custom.min.css">
+
   
 
   
@@ -36,20 +38,103 @@
       pointer-events: none;
     }
 
-     
     body > * {
       position: relative;
       z-index: 10;
     }
 
+    header { z-index: 30; }
+    #mobile-menu { z-index: 9999 !important; }
+
      
-    header {
-      z-index: 30;
+    .basic-course-module .prose,
+    .basic-course-module .prose-invert,
+    .basic-course-module .course-content-prose,
+    .basic-course-module .content-typography {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .course-content-prose h1,
+    .basic-course-module .course-content-prose h2,
+    .basic-course-module .course-content-prose h3,
+    .basic-course-module .course-content-prose h4 {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .course-content-prose ul { list-style: disc; margin-left: 1.25rem; padding-left: 0; }
+    .basic-course-module .course-content-prose ol { list-style: decimal; margin-left: 1.25rem; padding-left: 0; }
+    .basic-course-module .course-content-prose li { color: #f3f4f6 !important; }
+
+    .basic-course-module .course-content-prose a {
+      color: #93c5fd !important;
+    }
+
+    .basic-course-module .module-card,
+    .basic-course-module .module-description {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .prose blockquote,
+    .basic-course-module .prose-invert blockquote,
+    .basic-course-module .course-content-prose blockquote {
+      color: #f3f4f6 !important;
+      background: rgba(255,255,255,0.02);
+      border-left: 4px solid rgba(147,197,253,0.18);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+    }
+    .basic-course-module .prose blockquote p,
+    .basic-course-module .course-content-prose blockquote p {
+      color: #f3f4f6 !important;
+      margin: 0;
     }
 
      
-    #mobile-menu {
-      z-index: 9999 !important;
+    .contacts-page .prose,
+    .contacts-page .prose-invert,
+    .contacts-page .course-content-prose,
+    .contacts-page .content-typography {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page h1,
+    .contacts-page h2,
+    .contacts-page h3,
+    .contacts-page h4,
+    .contacts-page .course-content-prose h1,
+    .contacts-page .course-content-prose h2 {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page .prose ul,
+    .contacts-page .course-content-prose ul {
+      list-style: disc;
+      margin-left: 1.25rem;
+      padding-left: 0;
+    }
+
+    .contacts-page .prose li,
+    .contacts-page .course-content-prose li {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page a {
+      color: #93c5fd !important;
+    }
+
+    .contacts-page blockquote,
+    .contacts-page .prose blockquote,
+    .contacts-page .course-content-prose blockquote {
+      color: #fbfdff !important;
+      background: rgba(255,255,255,0.02);
+      border-left: 4px solid rgba(147,197,253,0.22);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+    }
+
+    .contacts-page blockquote p {
+      color: #fbfdff !important;
+      margin: 0;
     }
   </style>
 
@@ -66,7 +151,6 @@
         </a>
       </div>
 
-      
       <nav class="hidden md:flex items-center space-x-6">
         <a href="/" class="text-white hover:text-indigo-400">Главная</a>
         <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
@@ -74,7 +158,6 @@
         <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
       </nav>
 
-      
       <div class="md:hidden">
         <button id="mobile-menu-button" aria-expanded="false" aria-label="Открыть меню"
                 class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400">
@@ -93,20 +176,18 @@
     </div>
   </header>
 
-  
   <div id="mobile-menu" class="md:hidden hidden bg-gray-900 text-white rounded shadow-lg"
        style="position:fixed; top:4rem; right:1rem; width:max-content; min-width:8rem;
               max-width:calc(100% - 2rem); box-shadow:0 8px 24px rgba(0,0,0,0.6);
               border:1px solid rgba(255,255,255,0.12);">
     <div style="max-height: calc(100vh - 6rem); overflow-y:auto;" class="px-3 py-2">
       <a href="/" class="block py-2 px-2 rounded hover:bg-gray-800">Главная</a>
-      <a href='/masters/' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
       <a href='/courses/' class="block py-2 px-2 rounded hover:bg-gray-800">Курсы</a>
+      <a href='/masters/' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
       <a href='/contacts/' class="block py-2 px-2 rounded hover:bg-gray-800">Контакты</a>
     </div>
   </div>
 
-  
   <main class="flex-1 relative pt-16 min-h-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
     
 
@@ -114,117 +195,93 @@
 
   <a href="/courses/" class="inline-block text-sm mb-4 hover:underline">&larr; Все курсы</a>
 
-  <h1 class="text-3xl font-bold mb-4">Продвинутый модуль 2</h1>
+  <h1 class="text-3xl font-bold mb-4 text-gray-100">Портрет</h1>
 
-  <div class="prose max-w-none mb-8">
-    
+  <div class="prose prose-invert max-w-none mb-8 text-gray-100">
+    <p>Постановка света и поз, работа с моделями (в том числе «не умеющими позировать»)</p>
+
   </div>
 
-  <h2 class="text-2xl font-semibold mb-4">Модули курса</h2>
-
   
   
-
-  
-    
-    
-    
-  
-    
-    
-    
-  
-    
-    
-    
   
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-  </div>
+    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Модули курса</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      
+        
+        
+        
+
+        
+          
+          
+          
+          
+          <a href="/courses/advanced-course-2/mod-01/" class="block group rounded border shadow overflow-hidden bg-gray-800" aria-label="Перейти к модулю mod-01">
+            <div class="overflow-hidden">
+              <img src="/courses/advanced-course-2/mod-01/cover.jpg" alt="mod-01" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-200 rounded mb-3">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-xl mb-2 text-gray-100 group-hover:underline">mod-01</h3>
+              <p class="text-gray-300">&nbsp;</p>
+            </div>
+          </a>
+        
+
+      
+        
+        
+        
+
+        
+          
+          
+          
+          
+          <a href="/courses/advanced-course-2/mod-02/" class="block group rounded border shadow overflow-hidden bg-gray-800" aria-label="Перейти к модулю mod-02">
+            <div class="overflow-hidden">
+              <img src="/courses/advanced-course-2/mod-02/cover.jpg" alt="mod-02" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-200 rounded mb-3">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-xl mb-2 text-gray-100 group-hover:underline">mod-02</h3>
+              <p class="text-gray-300">&nbsp;</p>
+            </div>
+          </a>
+        
+
+      
+        
+        
+        
+
+        
+          
+          
+          
+          
+          <a href="/courses/advanced-course-2/mod-03/" class="block group rounded border shadow overflow-hidden bg-gray-800" aria-label="Перейти к модулю mod-03">
+            <div class="overflow-hidden">
+              <img src="/courses/advanced-course-2/mod-03/cover.jpg" alt="mod-03" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-200 rounded mb-3">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-xl mb-2 text-gray-100 group-hover:underline">mod-03</h3>
+              <p class="text-gray-300">&nbsp;</p>
+            </div>
+          </a>
+        
+
+      
+    </div>
+
+  
 
 </div>
 
 
   </main>
 
-  
   <footer class="h-16 flex items-center justify-center bg-gray-800 text-gray-400">
-    © 2025 GurFoto.Ru Все права защищены.
-  </footer>
-
-<script>
-(function(){
-  var btn = document.getElementById('mobile-menu-button');
-  var menu = document.getElementById('mobile-menu');
-  var openIcon = document.getElementById('hamburger-open');
-  var closeIcon = document.getElementById('hamburger-close');
-
-  if (!btn || !menu) return;
-
-  function isMenuOpen(){ return !menu.classList.contains('hidden'); }
-
-  function openMenu(){
-    menu.classList.remove('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-    if (openIcon && closeIcon) { openIcon.classList.add('hidden'); closeIcon.classList.remove('hidden'); }
-    adjustMenuPosition();
-  }
-
-  function closeMenu(){
-    menu.classList.add('hidden');
-    btn.setAttribute('aria-expanded', 'false');
-    if (openIcon && closeIcon) { openIcon.classList.remove('hidden'); closeIcon.classList.add('hidden'); }
-  }
-
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if (isMenuOpen()) closeMenu(); else openMenu();
-  });
-
-  document.addEventListener('click', function(e){
-    if (!isMenuOpen()) return;
-    if (menu.contains(e.target) || btn.contains(e.target)) return;
-    closeMenu();
-  });
-
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && isMenuOpen()) closeMenu();
-  });
-
-  window.addEventListener('resize', function(){
-    if (window.innerWidth >= 768 && isMenuOpen()) closeMenu();
-  });
-
-  function adjustMenuPosition(){
-    if (!menu || menu.classList.contains('hidden')) return;
-    var rect = menu.getBoundingClientRect();
-    var overflowLeft = rect.left < 8;
-    var overflowRight = rect.right > (window.innerWidth - 8);
-    if (overflowRight && !overflowLeft){
-      menu.style.right = '1rem';
-      menu.style.left = 'auto';
-      if (menu.getBoundingClientRect().right > window.innerWidth - 8){
-        menu.style.left = '1rem';
-        menu.style.right = 'auto';
-      }
-    } else if (overflowLeft){
-      menu.style.left = '1rem';
-      menu.style.right = 'auto';
-    } else {
-      menu.style.right = '1rem';
-      menu.style.left = 'auto';
-    }
-  }
-
-  window.addEventListener('resize', adjustMenuPosition);
-
-  new MutationObserver(function(){
-    if (isMenuOpen()) adjustMenuPosition();
-  }).observe(menu, { attributes: true, attributeFilter: ['class'] });
-
-})();
-</script>
-
-</body>
-</html>
+    © 2026 GurFoto.

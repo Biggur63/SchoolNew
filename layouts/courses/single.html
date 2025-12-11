@@ -4,35 +4,68 @@
 
   <a href="{{ "/courses/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Все курсы</a>
 
-  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+  <h1 class="text-3xl font-bold mb-4 text-gray-100">{{ .Title }}</h1>
 
-  <div class="prose max-w-none mb-8">
+  <div class="prose prose-invert max-w-none mb-8 text-gray-100">
     {{ .Content }}
   </div>
 
-  <h2 class="text-2xl font-semibold mb-4">Модули курса</h2>
+  {{/* -------------------------
+       Блок модулей (без ошибок)
+       - используем $root для внешнего контекста
+       - для каждого slug пытаемся найти страницу через $root.GetPage
+       - если не найдено — строим корректный fallback (base + slug + "/")
+     ------------------------- */}}
+  {{ $mods := .Params.modules }}
+  {{ if and $mods (gt (len $mods) 0) }}
 
-  {{ $root := . }}
-  {{ $modules := slice }}
+    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Модули курса</h2>
 
-  {{ range .Params.modules }}
-    {{ $slug := . }}
-    {{ $p := $root.GetPage $slug }}
-    {{ if $p }}
-      {{ $modules = $modules | append $p }}
-    {{ end }}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ $root := . }}
+      {{ range $mods }}
+        {{ $slug := . }}
+        {{/* Попытка найти страницу модуля относительно текущей страницы */}}
+        {{ $p := $root.GetPage $slug }}
+
+        {{ if $p }}
+          {{ $link := $p.RelPermalink }}
+          {{ $img := or $p.Params.image $p.Params.img $p.Params.thumbnail }}
+          <a href="{{ $link }}" class="block group rounded border shadow overflow-hidden bg-gray-800" aria-label="Перейти к модулю {{ $p.Title }}">
+            {{ if $img }}
+              <div class="overflow-hidden">
+                <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-200 rounded mb-3">
+              </div>
+            {{ else }}
+              <div class="w-full h-40 bg-gray-700 rounded mb-3"></div>
+            {{ end }}
+
+            <div class="p-4">
+              <h3 class="font-semibold text-xl mb-2 text-gray-100 group-hover:underline">{{ $p.Title }}</h3>
+              {{ with $p.Params.summary }}<p class="text-gray-300">{{ . }}</p>{{ end }}
+            </div>
+          </a>
+
+        {{ else }}
+          {{/* Надёжный fallback: base URL курса + slug */}}
+          {{ $base := $root.RelPermalink }}
+          {{ $link := print $base $slug "/" }}
+          {{ $imgGuess := print $link "cover.jpg" }}
+          <a href="{{ $link }}" class="block group rounded border shadow overflow-hidden bg-gray-800" aria-label="Перейти к модулю {{ $slug }}">
+            <div class="overflow-hidden">
+              <img src="{{ $imgGuess }}" alt="{{ $slug }}" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-200 rounded mb-3">
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-xl mb-2 text-gray-100 group-hover:underline">{{ $slug }}</h3>
+              <p class="text-gray-300">&nbsp;</p>
+            </div>
+          </a>
+        {{ end }}
+
+      {{ end }}
+    </div>
+
   {{ end }}
-
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {{ range $modules }}
-      <div class="p-4 rounded border shadow">
-        <h3 class="font-semibold text-xl mb-2">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h3>
-        <p>{{ .Params.summary }}</p>
-      </div>
-    {{ end }}
-  </div>
 
 </div>
 

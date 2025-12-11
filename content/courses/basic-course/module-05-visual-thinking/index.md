@@ -2,6 +2,7 @@
 title: "Визуальное мышление"
 type: "module"
 draft: false
+image: "cover.jpg"
 duration: "2 недели"
 module_number: 5
 parent_course: "basic-course"

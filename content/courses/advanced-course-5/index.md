@@ -1,10 +1,10 @@
 ---
-title: "Продвинутый модуль 5"
+title: "Предметная съемка I"
 type: "courses"
 layout: "single"
 draft: false
 image: "/images/modules/advanced-05.jpg"
-summary: "Работа со светом, съёмка в сложных условиях."
+summary: "Брекетинг экспозиции, focus stacking"
 duration: "2 недели"
 level: "средний"
 order: 5
@@ -16,3 +16,4 @@ modules:
 
 allow_external_modules: true
 ---
+

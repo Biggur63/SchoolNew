@@ -1,10 +1,10 @@
 ---
-title: "Продвинутый модуль 2"
+title: "Портрет"
 type: "courses"
 layout: "single"
 draft: false
 image: "/images/modules/advanced-02.jpg"
-summary: "Работа со светом, съёмка в сложных условиях."
+summary: "Постановка света и поз, работа с моделями."
 duration: "2 недели"
 level: "средний"
 order: 2
@@ -16,3 +16,5 @@ modules:
 
 allow_external_modules: true
 ---
+
+Постановка света и поз, работа с моделями (в том числе «не умеющими позировать»)

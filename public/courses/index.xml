@@ -10,39 +10,46 @@
     <webMaster>biggur@mail.ru (Юрий Гуревич)</webMaster>
     <atom:link href="http://localhost:1313/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Продвинутый модуль 2</title>
-      <link>http://localhost:1313/courses/advanced-course-2/</link>
+      <title>Визуальный язык и восприятие изображений</title>
+      <link>http://localhost:1313/courses/advanced-course-9/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-2/</guid>
-      <description>Работа со светом, съёмка в сложных условиях.</description>
+      <guid>http://localhost:1313/courses/advanced-course-9/</guid>
+      <description>Брекетинг экспозиции, focus stacking</description>
     </item>
     <item>
-      <title>Продвинутый модуль 3</title>
+      <title>Композиция и построение кадра</title>
+      <link>http://localhost:1313/courses/advanced-course-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
+      <guid>http://localhost:1313/courses/advanced-course-8/</guid>
+      <description>Брекетинг экспозиции, focus stacking</description>
+    </item>
+    <item>
+      <title>Пейзаж и архитектура</title>
       <link>http://localhost:1313/courses/advanced-course-3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/advanced-course-3/</guid>
-      <description>Работа со светом, съёмка в сложных условиях.</description>
+      <description>Работа с разными фокусными расстояниями, поиск форм и линий в природе и городе.</description>
     </item>
     <item>
-      <title>Продвинутый модуль 4</title>
-      <link>http://localhost:1313/courses/advanced-course-4/</link>
+      <title>Портрет</title>
+      <link>http://localhost:1313/courses/advanced-course-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-4/</guid>
-      <description>Работа со светом, съёмка в сложных условиях.</description>
+      <guid>http://localhost:1313/courses/advanced-course-2/</guid>
+      <description>Постановка света и поз, работа с моделями.</description>
     </item>
     <item>
-      <title>Продвинутый модуль 5</title>
+      <title>Предметная съемка I</title>
       <link>http://localhost:1313/courses/advanced-course-5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/advanced-course-5/</guid>
-      <description>Работа со светом, съёмка в сложных условиях.</description>
+      <description>Брекетинг экспозиции, focus stacking</description>
     </item>
     <item>
-      <title>Продвинутый модуль 6</title>
+      <title>Предметная съемка II</title>
       <link>http://localhost:1313/courses/advanced-course-6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/advanced-course-6/</guid>
-      <description>Работа со светом, съёмка в сложных условиях.</description>
+      <description>Макросъемка, food-съемка, съемка для каталогов</description>
     </item>
     <item>
       <title>Работа со светом</title>
@@ -50,6 +57,20 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/advanced-course-1/</guid>
       <description>Работа со светом, съёмка в сложных условиях.</description>
+    </item>
+    <item>
+      <title>Репортаж и уличная съемка</title>
+      <link>http://localhost:1313/courses/advanced-course-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
+      <guid>http://localhost:1313/courses/advanced-course-4/</guid>
+      <description>Принципы ненавязчивой съёмки, «быстрые решения» в улицах и событиях.</description>
+    </item>
+    <item>
+      <title>Съемка интерьеров</title>
+      <link>http://localhost:1313/courses/advanced-course-7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
+      <guid>http://localhost:1313/courses/advanced-course-7/</guid>
+      <description>Выбор ракурса, HDR-обработка.</description>
     </item>
   </channel>
 </rss>

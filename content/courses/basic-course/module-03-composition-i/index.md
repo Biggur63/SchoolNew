@@ -2,6 +2,7 @@
 title: "Композиция I"
 type: "module"
 draft: false
+image: "cover.jpg"
 duration: "2 недели"
 module_number: 3
 parent_course: "basic-course"

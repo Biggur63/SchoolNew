@@ -2,6 +2,7 @@
 title: "Свет и цвет"
 type: "module"
 draft: false
+image: "cover.jpg"
 duration: "2 недели"
 module_number: 2
 parent_course: "basic-course"
@@ -27,4 +28,3 @@ slug: "module-02-light-color"
 Практика и мастер-класс
 - Фотопрогулка на рассвете/вечером для чтения источника света. :contentReference[oaicite:5]{index=5}
 - Мастер-класс: практикум по управлению светом — установка софтбокса/рефлектора и обратная связь. :contentReference[oaicite:6]{index=6}
-

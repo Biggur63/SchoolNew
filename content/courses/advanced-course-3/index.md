@@ -1,10 +1,10 @@
 ---
-title: "Продвинутый модуль 3"
+title: "Пейзаж и архитектура"
 type: "courses"
 layout: "single"
 draft: false
 image: "/images/modules/advanced-03.jpg"
-summary: "Работа со светом, съёмка в сложных условиях."
+summary: "Работа с разными фокусными расстояниями, поиск форм и линий в природе и городе."
 duration: "2 недели"
 level: "средний"
 order: 3

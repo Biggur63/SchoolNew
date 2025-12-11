@@ -1,0 +1,14 @@
+/* Глобальная правка: переопределяем цвет bold/italic на всех тёмных страницах */
+
+.prose strong,
+.prose b,
+.prose em,
+.prose i {
+    color: #f3f4f6 !important; /* светлый, tailwind gray-100 */
+}
+
+/* На всякий случай — ссылки и заголовки */
+.prose h1, .prose h2, .prose h3, .prose h4,
+.prose a {
+    color: #f3f4f6 !important;
+}

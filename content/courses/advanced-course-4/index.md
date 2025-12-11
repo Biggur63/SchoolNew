@@ -1,10 +1,10 @@
 ---
-title: "Продвинутый модуль 4"
+title: "Репортаж и уличная съемка"
 type: "courses"
 layout: "single"
 draft: false
 image: "/images/modules/advanced-04.jpg"
-summary: "Работа со светом, съёмка в сложных условиях."
+summary: "Принципы ненавязчивой съёмки, «быстрые решения» в улицах и событиях."
 duration: "2 недели"
 level: "средний"
 order: 4

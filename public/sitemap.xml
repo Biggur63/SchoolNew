@@ -32,6 +32,8 @@
   </url><url>
     <loc>http://localhost:1313/contacts/</loc>
   </url><url>
+    <loc>http://localhost:1313/courses/</loc>
+  </url><url>
     <loc>http://localhost:1313/masters/</loc>
   </url><url>
     <loc>http://localhost:1313/courses/advanced-course-3/</loc>
@@ -60,8 +62,6 @@
   </url><url>
     <loc>http://localhost:1313/courses/advanced-course-7/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-01-technical-basics/</loc>
-  </url><url>
-    <loc>http://localhost:1313/courses/</loc>
+    <loc>http://localhost:1313/courses/basic-course/technical-basics/</loc>
   </url>
 </urlset>

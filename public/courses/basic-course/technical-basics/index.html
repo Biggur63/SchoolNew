@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
-  <title>{{ .Title }}</title>
-  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ end }}">
+  <title>Технические основы фотографии</title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Tailwind CDN
-  <script src="https://cdn.tailwindcss.com"></script> -->
+  
 
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
-  <!-- CSS типографики для контента курсов -->
+  
   <link href="/css/typography.css" rel="stylesheet">
 
-  <!-- CUSTOM CSS -->
-  {{ $custom := resources.Get "css/custom.css" | minify }}
-  <link rel="stylesheet" href="{{ $custom.RelPermalink }}">
+  
+  
+  <link rel="stylesheet" href="/css/custom.min.css">
 
-  {{/* ----------------------------------------------------------
-       ЕДИНЫЙ МЕХАНИЗМ ФОНОВ + ЗАТЕМНЕНИЯ
-       Поддерживаются параметры:
-         - bg_img / bg_image
-       Приоритет: .Params → .Site.Params → дефолт
-       bg_dim: .Params.bg_dim / .Site.Params.bg_dim / дефолт 0.40
-  ----------------------------------------------------------- */}}
+  
 
-  {{ $bg := or .Params.bg_img .Params.bg_image .Site.Params.bg_img .Site.Params.bg_image "/images/default-bg.jpg" }}
-  {{ $dim := or .Params.bg_dim .Site.Params.bg_dim 0.40 }}
+  
+  
 
   <style>
-    /* Фон + затемнение */
+     
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background:
         linear-gradient(
-          rgba(0,0,0,{{ $dim }}),
-          rgba(0,0,0,{{ $dim }})
+          rgba(0,0,0,0.7),
+          rgba(0,0,0,0.7)
         ),
-        url('{{ $bg }}') center center / cover no-repeat;
+        url('/images/bg-courses.jpg') center center / cover no-repeat;
       z-index: 0;
       pointer-events: none;
     }
@@ -53,7 +46,7 @@
     header { z-index: 30; }
     #mobile-menu { z-index: 9999 !important; }
 
-    /* ---- Модули базового курса ---- */
+     
     .basic-course-module .prose,
     .basic-course-module .prose-invert,
     .basic-course-module .course-content-prose,
@@ -96,7 +89,7 @@
       margin: 0;
     }
 
-    /* ---- Контакты ---- */
+     
     .contacts-page .prose,
     .contacts-page .prose-invert,
     .contacts-page .course-content-prose,
@@ -147,22 +140,22 @@
 
 </head>
 
-<body class="bg-gray-900 font-sans m-0 text-gray-100 h-screen flex flex-col{{ if in .RelPermalink "/courses/basic-course/" }} basic-course-module{{ end }}{{ if in .RelPermalink "/contacts/" }} contacts-page{{ end }}">
+<body class="bg-gray-900 font-sans m-0 text-gray-100 h-screen flex flex-col basic-course-module">
 
-  <!-- Header -->
+  
   <header class="fixed top-0 left-0 right-0 z-30 bg-gray-900/95 backdrop-blur-sm shadow">
     <div class="container mx-auto flex items-center justify-between h-16 px-4">
       <div class="flex items-center">
-        <a href="{{ "/" | relURL }}" class="flex items-center">
-          <img src="{{ "images/logo.png" | relURL }}" alt="{{ .Site.Title | default "GurFoto.Ru" }}" class="h-10 md:h-12 w-auto">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="SchoolNew: ОБучение фотографии" class="h-10 md:h-12 w-auto">
         </a>
       </div>
 
       <nav class="hidden md:flex items-center space-x-6">
-        <a href="{{ "/" | relURL }}" class="text-white hover:text-indigo-400">Главная</a>
-        <a href='{{ "/courses/" | relURL }}' class="text-white hover:text-indigo-400">Курсы</a>
-        <a href='{{ "/masters/" | relURL }}' class="text-white hover:text-indigo-400">Мастера фотографии</a>
-        <a href='{{ "/contacts/" | relURL }}' class="text-white hover:text-indigo-400">Контакты</a>
+        <a href="/" class="text-white hover:text-indigo-400">Главная</a>
+        <a href='/courses/' class="text-white hover:text-indigo-400">Курсы</a>
+        <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
+        <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
       </nav>
 
       <div class="md:hidden">
@@ -188,15 +181,64 @@
               max-width:calc(100% - 2rem); box-shadow:0 8px 24px rgba(0,0,0,0.6);
               border:1px solid rgba(255,255,255,0.12);">
     <div style="max-height: calc(100vh - 6rem); overflow-y:auto;" class="px-3 py-2">
-      <a href="{{ "/" | relURL }}" class="block py-2 px-2 rounded hover:bg-gray-800">Главная</a>
-      <a href='{{ "/courses/" | relURL }}' class="block py-2 px-2 rounded hover:bg-gray-800">Курсы</a>
-      <a href='{{ "/masters/" | relURL }}' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
-      <a href='{{ "/contacts/" | relURL }}' class="block py-2 px-2 rounded hover:bg-gray-800">Контакты</a>
+      <a href="/" class="block py-2 px-2 rounded hover:bg-gray-800">Главная</a>
+      <a href='/courses/' class="block py-2 px-2 rounded hover:bg-gray-800">Курсы</a>
+      <a href='/masters/' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
+      <a href='/contacts/' class="block py-2 px-2 rounded hover:bg-gray-800">Контакты</a>
     </div>
   </div>
 
   <main class="flex-1 relative pt-16 min-h-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
-    {{ block "main" . }}{{ end }}
+    
+
+
+
+
+
+
+  
+
+
+<div class="container mx-auto px-4 py-8">
+
+  <a href="/courses/basic-course/" class="inline-block text-sm mb-4 hover:underline">
+    &larr; Назад
+  </a>
+
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold mb-2">Технические основы фотографии</h1>
+    
+  </header>
+
+  <div class="prose max-w-none">
+    <p>Основы работы с камерой, экспозицией и техническими параметрами.</p>
+<p>Теория</p>
+<p>Вводный модуль задаёт фундамент: как камера «видит» мир, что такое экспозиция и как ей управлять. Разбираем режимы съёмки (Auto, P, S, A, M), ISO, выдержку и диафрагму. Практическое понимание экспозиции — ключ к управлению настроением кадра.</p>
+<blockquote>
+<p>«&hellip;изменение одного параметра (диафрагмы, выдержки, ISO) требует компенсации другими, чтобы сохранить баланс света. Так, «изменение любого параметра требует коррекции остальных», что даёт свободу творчества при любом освещении. Особое внимание — практическому пониманию экспозиции как инструмента настроения кадра: умелая недодержка усиливает драму, а передержка создаёт светлый, «воздушный» эффект.» :contentReference[oaicite:2]{index=2}</p>
+</blockquote>
+<p>Ключевые темы</p>
+<ul>
+<li>Экспозиционный треугольник: ISO, выдержка, диафрагма.</li>
+<li>Глубина резкости (ГРИП): влияние диафрагмы и фокусного расстояния.</li>
+<li>Фокусировка: авто и ручной режим, выбор точки фокуса.</li>
+<li>Форматы: RAW vs JPEG — когда и зачем снимать в RAW.</li>
+</ul>
+<p>Практика и домашние задания</p>
+<ul>
+<li>Серия по экспозиции (см. assignments).</li>
+<li>Упражнение: чтение гистограммы и предотвращение «сгоревшего» неба.</li>
+</ul>
+<p>Мастер-класс</p>
+<ul>
+<li>Разбор экспозиции в полевых условиях; преподаватель демонстрирует работу с гистограммой и даёт индивидуальные рекомендации. :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+  </div>
+
+</div>
+
+
   </main>
 
   <footer class="h-16 flex items-center justify-center bg-gray-800 text-gray-400">

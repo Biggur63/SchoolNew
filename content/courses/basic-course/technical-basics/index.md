@@ -3,10 +3,12 @@ title: "Технические основы фотографии"
 type: "module"
 draft: false
 image: "cover.jpg"
+bg_image: "/images/bg-courses.jpg"
+bg_dim: 0.7
 duration: "2 недели"
 module_number: 1
 parent_course: "basic-course"
-slug: "module-01-technical-basics"
+slug: "technical-basics"
 ---
 
 Основы работы с камерой, экспозицией и техническими параметрами.

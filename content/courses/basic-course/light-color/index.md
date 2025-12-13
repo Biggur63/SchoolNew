@@ -3,6 +3,8 @@ title: "Свет и цвет"
 type: "module"
 draft: false
 image: "cover.jpg"
+bg_image: "/images/bg-courses.jpg"
+bg_dim: 0.7
 duration: "2 недели"
 module_number: 2
 parent_course: "basic-course"

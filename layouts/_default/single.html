@@ -17,9 +17,12 @@
   </a>
 
   <header class="mb-6">
-    <h1 class="text-3xl font-bold mb-2">{{ .Title }}</h1>
-    {{ with .Params.summary }}
-      <p class="text-gray-200 mb-4">{{ . }}</p>
+    <h1 class="text-3xl font-bold mb-3">{{ .Title }}</h1>
+
+    {{ with .Params.lead }}
+      <p class="text-lg leading-relaxed text-gray-200 mb-4">
+        {{ . }}
+      </p>
     {{ end }}
   </header>
 

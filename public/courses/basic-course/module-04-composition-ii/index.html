@@ -144,34 +144,39 @@
 
   
   <header class="fixed top-0 left-0 right-0 z-30 bg-gray-900/95 backdrop-blur-sm shadow">
-    <div class="container mx-auto flex items-center justify-between h-16 px-4">
-      <div class="flex items-center">
+    <div class="flex items-center h-16">
+
+      
+      <div class="pl-4">
         <a href="/" class="flex items-center">
           <img src="/images/logo.png" alt="SchoolNew: ОБучение фотографии" class="h-10 md:h-12 w-auto">
         </a>
       </div>
 
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="/" class="text-white hover:text-indigo-400">Главная</a>
-        <a href='/courses/' class="text-white hover:text-indigo-400">Курсы</a>
-        <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
-        <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
-      </nav>
+      
+      <div class="container mx-auto flex items-center justify-end h-16 px-4">
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="/" class="text-white hover:text-indigo-400">Главная</a>
+          <a href='/courses/' class="text-white hover:text-indigo-400">Курсы</a>
+          <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
+          <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
+        </nav>
 
-      <div class="md:hidden">
-        <button id="mobile-menu-button" aria-expanded="false" aria-label="Открыть меню"
-                class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400">
-          <svg id="hamburger-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="hamburger-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" aria-expanded="false" aria-label="Открыть меню"
+                  class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <svg id="hamburger-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="hamburger-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -206,7 +211,8 @@
   </a>
 
   <header class="mb-6">
-    <h1 class="text-3xl font-bold mb-2">Композиция II</h1>
+    <h1 class="text-3xl font-bold mb-3">Композиция II</h1>
+
     
   </header>
 
@@ -237,3 +243,7 @@
 
   <footer class="h-16 flex items-center justify-center bg-gray-800 text-gray-400">
     © 2026 GurFoto.
+  </footer>
+
+</body>
+</html>

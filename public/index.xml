@@ -26,37 +26,37 @@
     </item>
     <item>
       <title>Визуальное мышление</title>
-      <link>http://localhost:1313/courses/basic-course/module-05-visual-thinking/</link>
+      <link>http://localhost:1313/courses/basic-course/visual-thinking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/basic-course/module-05-visual-thinking/</guid>
-      <description>&lt;p&gt;Понимание визуального языка, анализ изображений и построение идей.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Здесь мы учимся читать фотографию как текст: первое впечатление, гештальт-принципы (фигура–фон, иерархия, объединение), анализ приёма и подтекста. Модуль помогает сформулировать визуальную идею и аргументировать выбор образов.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Чтение фотографии как текста : первое впечатление, гештальт-принципы (фигура–фон, иерархия, группа и т.д.) ; анализ приёма и подтекста.» :contentReference[oaicite:10]{index=10}&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Ключевые темы&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Первое впечатление и визуальная иерархия.&lt;/li&gt;&#xA;&lt;li&gt;Гештальт-принципы в анализе кадра.&lt;/li&gt;&#xA;&lt;li&gt;Как превратить наблюдение в концепт.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Практика&lt;/p&gt;</description>
+      <guid>http://localhost:1313/courses/basic-course/visual-thinking/</guid>
+      <description>&lt;p&gt;Раздел о том, как читать кадр, формулировать идею серии и выстраивать её последовательность — от первого впечатления до аргументированного отбора.&lt;/p&gt;&#xA;&lt;p&gt;Что содержит раздел:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Метод анализа изображения: первое впечатление → детали → подтекст.&lt;/li&gt;&#xA;&lt;li&gt;Формулирование концепта в одном предложении: зачем этот кадр и что он должен сказать.&lt;/li&gt;&#xA;&lt;li&gt;Сбор и работа с референсами: мудборд как рабочий инструмент.&lt;/li&gt;&#xA;&lt;li&gt;Критерии отбора: как из пробной съёмки выбрать релевантные кадры.&lt;/li&gt;&#xA;&lt;li&gt;Порядок и ритм в серии: построение визуального нарратива.&lt;/li&gt;&#xA;&lt;li&gt;Работа в ограничениях: тема, формат, количество кадров — как превратить ограничение в условие творчества.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Чему вы научитесь:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Визуальный язык и восприятие изображений</title>
-      <link>http://localhost:1313/courses/advanced-course-9/</link>
+      <link>http://localhost:1313/courses/visual-language-and-image-perception/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-9/</guid>
+      <guid>http://localhost:1313/courses/visual-language-and-image-perception/</guid>
       <description>Брекетинг экспозиции, focus stacking</description>
     </item>
     <item>
       <title>Композиция I</title>
-      <link>http://localhost:1313/courses/basic-course/module-03-composition-i/</link>
+      <link>http://localhost:1313/courses/basic-course/composition-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/basic-course/module-03-composition-i/</guid>
-      <description>&lt;p&gt;Изучение базовых принципов композиции и визуальной организации кадра.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Композиция — способ расположить элементы кадра так, чтобы фото рассказывало историю. Начнём с правила третей и золотого сечения: эти схемы помогают определить «точки силы» для расположения главного объекта. Важно помнить, что правила — инструменты, а не догмы.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Композиция – способ «расположить элементы кадра, чтобы фото рассказывало историю». Без продуманной композиции даже технически качественный снимок «скучен и мёртв». Основы начинаются с правила третей и золотого сечения: их цель – дать подсказки о том, куда поместить главный объект. &amp;hellip; Ведущие линии &amp;hellip; они «упорядочивают пространство» и «делают изображение более понятным», создавая глубину и направляя взгляд к главному объекту.» :contentReference[oaicite:7]{index=7}&lt;/p&gt;</description>
+      <guid>http://localhost:1313/courses/basic-course/composition-1/</guid>
+      <description>&lt;p&gt;Раздел о том, как быстро и последовательно строить кадр: от выбора доминанты до управления планами и ракурсом.&lt;/p&gt;&#xA;&lt;p&gt;Что обсуждается в этом разделе:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Принцип выбора доминанты — как понять, что должно быть главным в кадре.&lt;/li&gt;&#xA;&lt;li&gt;Практическое применение классических приёмов: правило третей, ведущие линии, симметрия — когда их использовать и что это дает.&lt;/li&gt;&#xA;&lt;li&gt;Масштаб и соотношение планов — как близость и удалённость влияют на смысл.&lt;/li&gt;&#xA;&lt;li&gt;Ракурс и точка съёмки — как это меняет отношения в кадре.&lt;/li&gt;&#xA;&lt;li&gt;Негативное пространство и минимализм — как пустота усиливает образ.&lt;/li&gt;&#xA;&lt;li&gt;Ритм и повторяющиеся мотивы — как организовать в кадре визуальную динамику.&lt;/li&gt;&#xA;&lt;li&gt;Быстрые упражнения на отбор: серия из нескольких кадров одного сюжета и быстрая редакция.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Чему вы научитесь:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Композиция II</title>
-      <link>http://localhost:1313/courses/basic-course/module-04-composition-ii/</link>
+      <link>http://localhost:1313/courses/basic-course/composition-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/basic-course/module-04-composition-ii/</guid>
-      <description>&lt;p&gt;Продвинутые композиционные техники и работа с построением сложных сцен.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Углублённый модуль работает с тонким визуальным мышлением: форма, пустота и символы. Негативное пространство и минимализм превращают кадр в «визуальное эссе», где отсутствие деталей делает идею сильнее.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Негативное пространство – это «пустота» вокруг объекта, которая становится «героем истории»: оно даёт кадру «дыхание», концентрируя внимание и оставляя место для воображения. Фотография с умело использованной пустотой превращается в «глубокий визуальный эссе». Минимализм &amp;hellip; связывает эту идею с эстетикой wabi-sabi: снимаются лишние детали, чтобы подчеркнуть форму, линию, нюанс.» :contentReference[oaicite:8]{index=8}&lt;/p&gt;</description>
+      <guid>http://localhost:1313/courses/basic-course/composition-2/</guid>
+      <description>&lt;p&gt;Раздел о деликатных приёмах композиции: минимализм, работа с негативным пространством, ритмом и формой — то, что делает кадр выразительным при минимальном количестве элементов.&lt;/p&gt;&#xA;&lt;p&gt;Что содержит раздел:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Негативное пространство — как пустота становится смысловым инструментом.&lt;/li&gt;&#xA;&lt;li&gt;Минимализм — выбор и отказ: что оставить, чтобы идея была предельно ясна зрителю.&lt;/li&gt;&#xA;&lt;li&gt;Ритм и повтор — последовательность форм и их роль в построении визуального движения.&lt;/li&gt;&#xA;&lt;li&gt;Симметрия и асимметрия — баланс и преднамеренное нарушение равновесия.&lt;/li&gt;&#xA;&lt;li&gt;Слои и слойность — как выстраивать глубину пространства и отношения между планами.&lt;/li&gt;&#xA;&lt;li&gt;Текстура, форма и абстракция — использование простых элементов для создания образа.&lt;/li&gt;&#xA;&lt;li&gt;Быстрая редакция: отбор сильных кадров в минимальной серии.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Чему вы научитесь:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Композиция и построение кадра</title>
-      <link>http://localhost:1313/courses/advanced-course-8/</link>
+      <link>http://localhost:1313/courses/composition-and-framing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-8/</guid>
+      <guid>http://localhost:1313/courses/composition-and-framing/</guid>
       <description>Брекетинг экспозиции, focus stacking</description>
     </item>
     <item>
@@ -68,30 +68,30 @@
     </item>
     <item>
       <title>Пейзаж и архитектура</title>
-      <link>http://localhost:1313/courses/advanced-course-3/</link>
+      <link>http://localhost:1313/courses/landscape-and-architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-3/</guid>
+      <guid>http://localhost:1313/courses/landscape-and-architecture/</guid>
       <description>Работа с разными фокусными расстояниями, поиск форм и линий в природе и городе.</description>
     </item>
     <item>
       <title>Портрет</title>
-      <link>http://localhost:1313/courses/advanced-course-2/</link>
+      <link>http://localhost:1313/courses/portrait/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-2/</guid>
+      <guid>http://localhost:1313/courses/portrait/</guid>
       <description>Постановка света и поз, работа с моделями.</description>
     </item>
     <item>
       <title>Предметная съемка I</title>
-      <link>http://localhost:1313/courses/advanced-course-5/</link>
+      <link>http://localhost:1313/courses/subject-photography-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-5/</guid>
+      <guid>http://localhost:1313/courses/subject-photography-1/</guid>
       <description>Брекетинг экспозиции, focus stacking</description>
     </item>
     <item>
       <title>Предметная съемка II</title>
-      <link>http://localhost:1313/courses/advanced-course-6/</link>
+      <link>http://localhost:1313/courses/subject-photography-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-6/</guid>
+      <guid>http://localhost:1313/courses/subject-photography-2/</guid>
       <description>Макросъемка, food-съемка, съемка для каталогов</description>
     </item>
     <item>
@@ -124,37 +124,37 @@
     </item>
     <item>
       <title>Проектная серия</title>
-      <link>http://localhost:1313/courses/basic-course/module-06-project-series/</link>
+      <link>http://localhost:1313/courses/basic-course/project-series/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/basic-course/module-06-project-series/</guid>
-      <description>&lt;p&gt;Создание итогового фотопроекта и подготовка серии работ.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Завершающий модуль посвящён подготовке и реализации полного фотопроекта. Студент учится планировать съёмочную сессию так, чтобы отснять материал, из которого получится целая история: от мудборда и референсов до логистики и постобработки.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Студент учится планировать съёмочную сессию так, чтобы отснять материал, из которого получится целая история. &amp;hellip; На основе мудборда и референсов фиксируются ключевые ракурсы, желаемая цветовая гамма и предполагаемый ритм съёмки. Проводится логистика: выбор времени (лучший свет), подготовка оборудования (камеры, объективы 35/50/85/135 мм), ассистент/рефлектор, резервы карт памяти и батарей.» :contentReference[oaicite:12]{index=12}&lt;/p&gt;</description>
+      <guid>http://localhost:1313/courses/basic-course/project-series/</guid>
+      <description>&lt;p&gt;Этот учебный модуль посвящён доведению съёмочной идеи до законченной формы: планирование, съёмка, отбор, обработка и презентация результата.&lt;/p&gt;&#xA;&lt;p&gt;Что содержит учебный модуль:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Формулировка концепта и подготовка плана съёмки: мудборд, референсы, ключевые кадры.&lt;/li&gt;&#xA;&lt;li&gt;Организация съёмки: тайминг, логистика локации, работа с участниками и материалами.&lt;/li&gt;&#xA;&lt;li&gt;Контроль качества на съёмке: чек-лист и приёмы быстрого контроля результатов.&lt;/li&gt;&#xA;&lt;li&gt;Отбор кадров: критерии релевантности, последовательность и роль каждого кадра в серии.&lt;/li&gt;&#xA;&lt;li&gt;Базовая обработка: кадрирование, базовая коррекция тона и цвета для финального отбора.&lt;/li&gt;&#xA;&lt;li&gt;Подготовка презентации: короткое эссе о замысле и аргументация отбора.&lt;/li&gt;&#xA;&lt;li&gt;Финальный анализ и комментарии преподавателя: практические рекомендации по доработке и включению в портфолио.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Что даст этот раздел обучения:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Работа со светом</title>
-      <link>http://localhost:1313/courses/advanced-course-1/</link>
+      <link>http://localhost:1313/courses/working-with-light/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-1/</guid>
+      <guid>http://localhost:1313/courses/working-with-light/</guid>
       <description>Работа со светом, съёмка в сложных условиях.</description>
     </item>
     <item>
       <title>Репортаж и уличная съемка</title>
-      <link>http://localhost:1313/courses/advanced-course-4/</link>
+      <link>http://localhost:1313/courses/reportage-and-street-photography/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-4/</guid>
+      <guid>http://localhost:1313/courses/reportage-and-street-photography/</guid>
       <description>Принципы ненавязчивой съёмки, «быстрые решения» в улицах и событиях.</description>
     </item>
     <item>
       <title>Свет и цвет</title>
-      <link>http://localhost:1313/courses/basic-course/module-02-light-color/</link>
+      <link>http://localhost:1313/courses/basic-course/light-color/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/basic-course/module-02-light-color/</guid>
-      <description>&lt;p&gt;Изучение света, цветовой температуры и принципов работы с цветом.&lt;/p&gt;&#xA;&lt;h2 id=&#34;теория&#34;&gt;Теория&lt;/h2&gt;&#xA;&lt;p&gt;Свет — «главный соавтор фотографа». В этом модуле изучаем, как направление, жёсткость, относительный размер источника, контраст и падение света формируют объём и настроение кадра. Вместе с этим — психология цвета и практические тесты по балансу белого и цветовой гамме.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;«Свет — «главный соавтор фотографа». В этом модуле изучаем, как разные световые условия задают объём, настроение и драматургию кадра. По методу «Фоторазговоров» за 30 секунд можно диагностировать источник света по пяти признакам: направлению, жёсткости, относительному размеру, контрасту и падению.» :contentReference[oaicite:4]{index=4}&lt;/p&gt;</description>
+      <guid>http://localhost:1313/courses/basic-course/light-color/</guid>
+      <description>&lt;p&gt;В этом разделе курса вы научитесь читать, формировать и использовать свет и цвет — от направления и жёсткости светового потока до редактирования баланса белого и цветовых акцентов. Задача — научить вас целенаправленно строить настроение кадра через световые решения.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Работа со светом и цветом ─ основа фотографической практики!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Что содержит данный раздел:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Различие светового потока по направлениям — фронтальный, бококовой, контровой, верхний: как смена направления изменяет характер снимка.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Различие по характеру светотени — жёсткий и мягкий свет: как меняется характер теней, контраст и текстура, и как это отражается на восприятии фотографии.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Съемка интерьеров</title>
-      <link>http://localhost:1313/courses/advanced-course-7/</link>
+      <link>http://localhost:1313/courses/interior-photography/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
-      <guid>http://localhost:1313/courses/advanced-course-7/</guid>
+      <guid>http://localhost:1313/courses/interior-photography/</guid>
       <description>Выбор ракурса, HDR-обработка.</description>
     </item>
     <item>

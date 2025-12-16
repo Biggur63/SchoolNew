@@ -20,15 +20,15 @@
   </url><url>
     <loc>http://localhost:1313/courses/basic-course/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-05-visual-thinking/</loc>
+    <loc>http://localhost:1313/courses/basic-course/visual-thinking/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-9/</loc>
+    <loc>http://localhost:1313/courses/visual-language-and-image-perception/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-03-composition-i/</loc>
+    <loc>http://localhost:1313/courses/basic-course/composition-1/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-04-composition-ii/</loc>
+    <loc>http://localhost:1313/courses/basic-course/composition-2/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-8/</loc>
+    <loc>http://localhost:1313/courses/composition-and-framing/</loc>
   </url><url>
     <loc>http://localhost:1313/contacts/</loc>
   </url><url>
@@ -36,13 +36,13 @@
   </url><url>
     <loc>http://localhost:1313/masters/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-3/</loc>
+    <loc>http://localhost:1313/courses/landscape-and-architecture/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-2/</loc>
+    <loc>http://localhost:1313/courses/portrait/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-5/</loc>
+    <loc>http://localhost:1313/courses/subject-photography-1/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-6/</loc>
+    <loc>http://localhost:1313/courses/subject-photography-2/</loc>
   </url><url>
     <loc>http://localhost:1313/modules/advanced-module-03/</loc>
   </url><url>
@@ -52,15 +52,15 @@
   </url><url>
     <loc>http://localhost:1313/modules/advanced-module-06/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-06-project-series/</loc>
+    <loc>http://localhost:1313/courses/basic-course/project-series/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-1/</loc>
+    <loc>http://localhost:1313/courses/working-with-light/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-4/</loc>
+    <loc>http://localhost:1313/courses/reportage-and-street-photography/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/basic-course/module-02-light-color/</loc>
+    <loc>http://localhost:1313/courses/basic-course/light-color/</loc>
   </url><url>
-    <loc>http://localhost:1313/courses/advanced-course-7/</loc>
+    <loc>http://localhost:1313/courses/interior-photography/</loc>
   </url><url>
     <loc>http://localhost:1313/courses/basic-course/technical-basics/</loc>
   </url>

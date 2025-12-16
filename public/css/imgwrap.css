@@ -1,0 +1,21 @@
+/* static/css/imgwrap.css — минимальный CSS для обтекания и адаптивности */
+.imgwrap { display: block; margin: 1rem 0; }
+/* .imgwrap__img { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 6px; } */
+.imgwrap__img { max-width: 100%; width: auto; height: auto; display: block; object-fit: cover; border-radius: 6px; }
+
+/* Выравнивание / обтекание */
+.imgwrap--left  { float: left;  margin-right: 1rem; width: 35%; min-width: 160px; }
+.imgwrap--right { float: right; margin-left: 1rem;  width: 35%; min-width: 160px; }
+.imgwrap--center { margin-left: auto; margin-right: auto; width: 60%; }
+.imgwrap--inline { width: 100%; }
+
+/* Подпись */
+.imgwrap__caption { font-size: .9rem; color: #555; margin-top: .4rem; }
+
+/* Мобильный фоллбэк: снимаем float и делаем full width */
+@media (max-width: 768px) {
+  .imgwrap--left,
+  .imgwrap--right,
+  .imgwrap--center { float: none; width: 100%; margin: 0 0 1rem 0; }
+}
+

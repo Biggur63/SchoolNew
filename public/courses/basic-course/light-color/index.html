@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Свет и цвет</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+  
+  <link href="/css/typography.css" rel="stylesheet">
+
+  
+  
+  <link rel="stylesheet" href="/css/custom.min.css">
+
+  
+
+  
+  
+
+  <style>
+     
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.7),
+          rgba(0,0,0,0.7)
+        ),
+        url('/images/bg-courses.jpg') center center / cover no-repeat;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 10;
+    }
+
+    header { z-index: 30; }
+    #mobile-menu { z-index: 9999 !important; }
+
+     
+    .basic-course-module .prose,
+    .basic-course-module .prose-invert,
+    .basic-course-module .course-content-prose,
+    .basic-course-module .content-typography {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .course-content-prose h1,
+    .basic-course-module .course-content-prose h2,
+    .basic-course-module .course-content-prose h3,
+    .basic-course-module .course-content-prose h4 {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .course-content-prose ul { list-style: disc; margin-left: 1.25rem; padding-left: 0; }
+    .basic-course-module .course-content-prose ol { list-style: decimal; margin-left: 1.25rem; padding-left: 0; }
+    .basic-course-module .course-content-prose li { color: #f3f4f6 !important; }
+
+    .basic-course-module .course-content-prose a {
+      color: #93c5fd !important;
+    }
+
+    .basic-course-module .module-card,
+    .basic-course-module .module-description {
+      color: #f3f4f6 !important;
+    }
+
+    .basic-course-module .prose blockquote,
+    .basic-course-module .prose-invert blockquote,
+    .basic-course-module .course-content-prose blockquote {
+      color: #f3f4f6 !important;
+      background: rgba(255,255,255,0.02);
+      border-left: 4px solid rgba(147,197,253,0.18);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+    }
+    .basic-course-module .prose blockquote p,
+    .basic-course-module .course-content-prose blockquote p {
+      color: #f3f4f6 !important;
+      margin: 0;
+    }
+
+     
+    .contacts-page .prose,
+    .contacts-page .prose-invert,
+    .contacts-page .course-content-prose,
+    .contacts-page .content-typography {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page h1,
+    .contacts-page h2,
+    .contacts-page h3,
+    .contacts-page h4,
+    .contacts-page .course-content-prose h1,
+    .contacts-page .course-content-prose h2 {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page .prose ul,
+    .contacts-page .course-content-prose ul {
+      list-style: disc;
+      margin-left: 1.25rem;
+      padding-left: 0;
+    }
+
+    .contacts-page .prose li,
+    .contacts-page .course-content-prose li {
+      color: #fbfdff !important;
+    }
+
+    .contacts-page a {
+      color: #93c5fd !important;
+    }
+
+    .contacts-page blockquote,
+    .contacts-page .prose blockquote,
+    .contacts-page .course-content-prose blockquote {
+      color: #fbfdff !important;
+      background: rgba(255,255,255,0.02);
+      border-left: 4px solid rgba(147,197,253,0.22);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+    }
+
+    .contacts-page blockquote p {
+      color: #fbfdff !important;
+      margin: 0;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-900 font-sans m-0 text-gray-100 h-screen flex flex-col basic-course-module">
+
+  
+  <header class="fixed top-0 left-0 right-0 z-30 bg-gray-900/95 backdrop-blur-sm shadow">
+    <div class="flex items-center h-16">
+
+      
+      <div class="pl-4">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="SchoolNew: ОБучение фотографии" class="h-10 md:h-12 w-auto">
+        </a>
+      </div>
+
+      
+      <div class="container mx-auto flex items-center justify-end h-16 px-4">
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="/" class="text-white hover:text-indigo-400">Главная</a>
+          <a href='/courses/' class="text-white hover:text-indigo-400">Курсы</a>
+          <a href='/masters/' class="text-white hover:text-indigo-400">Мастера фотографии</a>
+          <a href='/contacts/' class="text-white hover:text-indigo-400">Контакты</a>
+        </nav>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" aria-expanded="false" aria-label="Открыть меню"
+                  class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <svg id="hamburger-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="hamburger-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="md:hidden hidden bg-gray-900 text-white rounded shadow-lg"
+       style="position:fixed; top:4rem; right:1rem; width:max-content; min-width:8rem;
+              max-width:calc(100% - 2rem); box-shadow:0 8px 24px rgba(0,0,0,0.6);
+              border:1px solid rgba(255,255,255,0.12);">
+    <div style="max-height: calc(100vh - 6rem); overflow-y:auto;" class="px-3 py-2">
+      <a href="/" class="block py-2 px-2 rounded hover:bg-gray-800">Главная</a>
+      <a href='/courses/' class="block py-2 px-2 rounded hover:bg-gray-800">Курсы</a>
+      <a href='/masters/' class="block py-2 px-2 rounded hover:bg-gray-800">Мастера фотографии</a>
+      <a href='/contacts/' class="block py-2 px-2 rounded hover:bg-gray-800">Контакты</a>
+    </div>
+  </div>
+
+  <main class="flex-1 relative pt-16 min-h-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
+    
+
+
+
+
+
+
+  
+
+
+<div class="container mx-auto px-4 py-8">
+
+  <a href="/courses/basic-course/" class="inline-block text-sm mb-4 hover:underline">
+    &larr; Назад
+  </a>
+
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold mb-3">Свет и цвет</h1>
+
+    
+  </header>
+
+  <div class="prose max-w-none">
+    <p>В этом разделе курса вы научитесь читать, формировать и использовать свет и цвет — от направления и жёсткости светового потока до редактирования баланса белого и цветовых акцентов. Задача — научить вас целенаправленно строить настроение кадра через световые решения.</p>
+<p><strong>Работа со светом и цветом ─ основа фотографической практики!</strong></p>
+<p>Что содержит данный раздел:</p>
+<ul>
+<li>
+<p>Различие светового потока по направлениям — фронтальный, бококовой, контровой, верхний: как смена направления изменяет характер снимка.</p>
+</li>
+<li>
+<p>Различие по характеру светотени — жёсткий и мягкий свет: как меняется характер теней, контраст и текстура, и как это отражается на восприятии фотографии.</p>
+</li>
+<li>
+<p>Падение света и локальный контраст — насколько быстро падает яркость при удалении от источника и какие приёмы (изменение расстояния, положение модификатора, отражатель/флаг) позволяют управлять светотенью.</p>
+</li>
+<li>
+<p>Баланс белого и цветовая температура — технические решения и творческие варианты работы с цветовыми оттенками.</p>
+</li>
+<li>
+<p>Цветовые акценты — как цвет влияет на восприятие снимка и как использовать локальную цветовую «подсветку» или смешанное освещение.</p>
+</li>
+<li>
+<p>Практические схемы света — несколько рабочих расстановок для портрета и предметной съёмки.</p>
+</li>
+<li>
+<p>Упражнения и анализ результатов — короткие практики с разбором ваших снимков и конкретными рекомендациями.</p>
+</li>
+</ul>
+
+
+   
+
+                 
+
+<figure
+  class="imgwrap imgwrap--left"
+  style="width: 50vw;"
+>
+  <img
+    src="1.jpg"
+    alt="Две венецианские маски на черной зеркальной поверхности"
+    loading="lazy"
+    class="imgwrap__img"
+  />
+  
+</figure>
+
+
+  </div>
+
+</div>
+
+
+  </main>
+
+  <footer class="h-16 flex items-center justify-center bg-gray-800 text-gray-400">
+    © 2026 GurFoto.
+  </footer>
+
+</body>
+</html>

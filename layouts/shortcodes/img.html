@@ -1,0 +1,20 @@
+{{ $src := .Get "src" | default "" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $align := .Get "align" | default "inline" }}   {{/* left | right | center | inline */}}
+{{ $caption := .Get "caption" | default "" }}
+{{ $w := .Get "w" | default "" }}                 {{/* ширина в % окна */}}
+
+<figure
+  class="imgwrap imgwrap--{{ $align }}"
+  {{ if $w }}style="width: {{ $w }}vw;"{{ end }}
+>
+  <img
+    src="{{ $src }}"
+    alt="{{ $alt | safeHTMLAttr }}"
+    loading="lazy"
+    class="imgwrap__img"
+  />
+  {{ if $caption }}
+    <figcaption class="imgwrap__caption">{{ $caption }}</figcaption>
+  {{ end }}
+</figure>

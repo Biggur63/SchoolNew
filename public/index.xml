@@ -36,7 +36,7 @@
       <link>http://localhost:1313/courses/visual-language-and-image-perception/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/visual-language-and-image-perception/</guid>
-      <description>Брекетинг экспозиции, focus stacking</description>
+      <description>Как изображение воздействует на зрителя: какие визуальные приёмы формируют смысл</description>
     </item>
     <item>
       <title>Композиция I</title>
@@ -57,14 +57,14 @@
       <link>http://localhost:1313/courses/composition-and-framing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/courses/composition-and-framing/</guid>
-      <description>Брекетинг экспозиции, focus stacking</description>
+      <description>От отбора элементов до точного кадрирования и определения формата подачи</description>
     </item>
     <item>
       <title>Контакты</title>
       <link>http://localhost:1313/contacts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>biggur@mail.ru (Юрий Гуревич)</author>
       <guid>http://localhost:1313/contacts/</guid>
-      <description>&lt;h2 id=&#34;контакты&#34;&gt;Контакты&lt;/h2&gt;&#xA;&lt;p&gt;Вы можете связаться с нами по следующим каналам:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Телефон:&lt;/strong&gt; +7 (999) 123-45-67&lt;br&gt;&#xA;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:info@gurfoto.ru&#34;&gt;info@gurfoto.ru&lt;/a&gt;&lt;br&gt;&#xA;&lt;strong&gt;Адрес студии:&lt;/strong&gt; Москва, ул. Примерная, 15&lt;/p&gt;&#xA;&lt;p&gt;Мы работаем ежедневно с 10:00 до 20:00.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;вы-можете-связаться-с-нами-по-следующим-каналам&#34;&gt;Вы можете связаться с нами по следующим каналам:&lt;/h2&gt;&#xA;&lt;h3 id=&#34;телефон-7-919-874-20-24&#34;&gt;&lt;strong&gt;Телефон:&lt;/strong&gt; &lt;a href=&#34;tel:+79198742024&#34;&gt;+7 (919) 874-20-24&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;WhatsApp / Telegram&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;email&#34;&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:school@gurfoto.ru&#34;&gt;school@gurfoto.ru&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Мы работаем ежедневно с 10:00 до 20:00.&lt;/p&gt;&#xA;&#xD;&#xA;&#xD;&#xA;   &#xD;&#xA;&#xD;&#xA;                 &#xD;&#xA;&#xD;&#xA;&lt;figure&#xD;&#xA;  class=&#34;imgwrap imgwrap--left&#34;&#xD;&#xA;  style=&#34;width: 50vw;&#34;&#xD;&#xA;&gt;&#xD;&#xA;  &lt;img&#xD;&#xA;    src=&#34;1.jpg&#34;&#xD;&#xA;    alt=&#34;Два перстня и фрагмент ювелирной цепочки.&#34;&#xD;&#xA;    loading=&#34;lazy&#34;&#xD;&#xA;    class=&#34;imgwrap__img&#34;&#xD;&#xA;  /&gt;&#xD;&#xA;  &#xD;&#xA;&lt;/figure&gt;</description>
     </item>
     <item>
       <title>Пейзаж и архитектура</title>

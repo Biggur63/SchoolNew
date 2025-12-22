@@ -6,7 +6,7 @@ draft: false
 image: "/images/modules/advanced-08.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
-summary: "Брекетинг экспозиции, focus stacking"
+summary: "От отбора элементов до точного кадрирования и определения формата подачи"
 duration: "2 недели"
 level: "средний"
 order: 8

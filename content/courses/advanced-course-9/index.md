@@ -5,7 +5,7 @@ draft: false
 image: "/images/modules/advanced-09.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
-summary: "Брекетинг экспозиции, focus stacking"
+summary: "Как изображение воздействует на зрителя: какие визуальные приёмы формируют смысл"
 duration: "2 недели"
 level: "средний"
 order: 9

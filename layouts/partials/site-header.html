@@ -1,0 +1,47 @@
+{{/* layouts/partials/site-header.html
+   Partial: кликабельный номер телефона рядом с логотипом.
+   Использование: вставьте {{ partial "site-header.html" . }} в ваш layouts/_default/baseof.html
+   Настройка номера: задайте .Site.Params.phone в config.toml/config.yaml (формат человеко-читаемый, любые разделители допускаются).
+*/}}
+
+<header class="site-header bg-transparent">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        {{/* Лого: предполагается, что у вас в baseof.html/другом месте уже есть логотип.
+               Если вы вставляете этот partial вместо текущего header, замените <a ...> ниже на ваш текущий лого-код. */}}
+        <a href="{{ .Site.BaseURL | relURL }}" class="site-logo inline-flex items-center" aria-label="На главную">
+          {{ with .Site.Params.logo }}
+            <img src="{{ . | relURL }}" alt="{{ .Site.Title }}" class="h-10 w-auto"/>
+          {{ else }}
+            <span class="text-xl font-semibold">{{ .Site.Title }}</span>
+          {{ end }}
+        </a>
+
+        {{/* Кликабельный телефон чуть правее логотипа */}}
+        {{/* Берём номер из .Site.Params.phone; если нет — используем запасной текст */}}
+        {{ $rawPhone := .Site.Params.phone | default "+7 123 456-78-90" }}
+        {{/* Убираем все символы, кроме цифр и знака + для href */}}
+        {{ $tel := replaceRE "[^+0-9]" "" $rawPhone }}
+
+        <a href="tel:{{ $tel }}"
+           class="phone-link ml-4 md:ml-6 inline-flex items-center text-sm font-medium whitespace-nowrap hover:underline"
+           aria-label="Позвонить {{ $rawPhone }}">
+          <!-- небольшой SVG-иконка телефона -->
+          <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5h2l2 5-1.2 1.2a16 16 0 006.6 6.6L16 17l5 2v2a1 1 0 01-1 1c-10.493 0-19-8.507-19-19A1 1 0 013 5z"/>
+          </svg>
+
+          <span class="phone-text">{{ $rawPhone }}</span>
+        </a>
+      </div>
+
+      {{/* Правый блок хедера: меню/поиск и т.д. — оставляем пустым, чтобы не ломать текущую разметку */}}
+      <div class="header-controls">
+        {{/* Если в вашем baseof.html уже есть правый блок (nav, кнопки), то оставьте его и просто
+           вместо текущего места для лого вставьте partial рядом с логотипом. */}}
+      </div>
+    </div>
+  </div>
+</header>

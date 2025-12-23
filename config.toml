@@ -7,10 +7,12 @@ enableRobotsTXT = true
 
 [params]
   description = "Индивидуальное обучение фотографии"
+  phone = "+7 919 874-20-24"
+  telegram = "Gurfoto"
 
   [params.author]
      name = "Юрий Гуревич"
-      email = "biggur@mail.ru"
+     email = "school@gurfoto.ru"
 
 [menu]
   [[menu.main]]

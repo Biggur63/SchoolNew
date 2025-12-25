@@ -1,88 +1,86 @@
 ﻿{{ define "main" }}
 
-<div class="container mx-auto px-4 py-8">
+<div class="container mx-auto px-4 py-8 basic-course">
 
-  <a href="{{ "/courses/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">&larr; Все курсы</a>
+  <a href="{{ "/courses/" | relURL }}" class="inline-block text-sm mb-4 hover:underline">
+    &larr; Все курсы
+  </a>
 
-  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+  <h1 class="text-3xl font-bold mb-4 text-gray-100">{{ .Title }}</h1>
 
-  <div class="prose max-w-none mb-8 text-gray-200">
+  <div class="prose prose-invert max-w-none mb-8 text-gray-100">
     {{ .Content }}
   </div>
 
-  <h2 class="text-2xl font-semibold mb-4">Модули курса</h2>
+  <style>
+    .basic-course a:hover h3,
+    .basic-course a:focus h3 {
+      text-decoration: none !important;
+    }
+  </style>
 
-  {{ $root := . }}
-  {{ $modules := slice }}
+  {{ $mods := .Params.modules }}
+  {{ if and $mods (gt (len $mods) 0) }}
 
-  {{/* Собираем страницы модулей из front-matter .Params.modules.
-       Поддерживаем несколько форматов: 'slug', 'modules/slug' или полный путь.
-       Добавляем только объекты-страницы (Page). */}}
-  {{ range $i, $entry := .Params.modules }}
-    {{ $slug := $entry }}
-
-    {{/* Попытка 1: modules/slug */}}
-    {{ with $root.Site.GetPage (printf "modules/%s" $slug) }}
-      {{ if eq .Kind "page" }}
-        {{ $modules = $modules | append . }}
-      {{ end }}
-    {{ else }}
-      {{/* Попытка 2: прямо по значению */}}
-      {{ with $root.Site.GetPage $slug }}
-        {{ if eq .Kind "page" }}
-          {{ $modules = $modules | append . }}
-        {{ end }}
-      {{ else }}
-        {{/* Попытка 3: убираем ведущий слеш если есть */}}
-        {{ $clean := replace $slug "^/" "" }}
-        {{ with $root.Site.GetPage $clean }}
-          {{ if eq .Kind "page" }}
-            {{ $modules = $modules | append . }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  {{ if eq (len $modules) 0 }}
-    <p class="text-gray-400">Модули не найдены — проверьте front-matter ключ <code>modules</code> в файле курса (обычно это список slug'ов модулей или путей типа "modules/slug").</p>
-  {{ else }}
+    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Модули курса</h2>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ range $modules }}
-        {{ $m := . }}
+      {{ $root := . }}
 
-        {{/* Убедимся, что $m — страница */}}
-        {{ if not (eq $m.Kind "page") }}
-          {{ continue }}
-        {{ end }}
+      {{ range $mods }}
+        {{ $p := $root.GetPage . }}
+        {{ if $p }}
 
-        <a href="{{ $m.RelPermalink }}" class="block p-4 rounded border shadow hover:shadow-lg transition group bg-gray-900">
+          {{ $img := or
+            ($p.Resources.GetMatch "cover*")
+            ($p.Resources.GetMatch "thumb*")
+          }}
 
-          {{/* Надёжный поиск ресурса: GetMatch возвращает одиночный ресурс (или nil), а не коллекцию */}}
-          {{ $imgFound := false }}
-          {{ if $m.Params.image }}
-            {{ $img := $m.Resources.GetMatch (printf "**/%s" $m.Params.image) }}
+          <a
+            href="{{ $p.RelPermalink }}"
+            class="
+              block group p-4 rounded border border-gray-700 bg-gray-900
+              transition
+              hover:shadow-lg hover:-translate-y-1
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
+            "
+          >
+
             {{ if $img }}
-              <img src="{{ $img.RelPermalink }}" alt="{{ $m.Title }}" class="w-full h-40 object-cover rounded mb-3">
-              {{ $imgFound = true }}
+              <img
+                src="{{ $img.RelPermalink }}"
+                alt="{{ $p.Title }}"
+                class="
+                  w-full h-40 object-cover rounded mb-3
+                  transition-transform duration-200
+                  group-hover:scale-105
+                "
+              >
+            {{ else if $p.Params.image }}
+              <img
+                src="{{ $p.Params.image | relURL }}"
+                alt="{{ $p.Title }}"
+                class="
+                  w-full h-40 object-cover rounded mb-3
+                  transition-transform duration-200
+                  group-hover:scale-105
+                "
+              >
+            {{ else }}
+              <div class="w-full h-40 bg-gray-800 rounded mb-3"></div>
             {{ end }}
-          {{ end }}
 
-          {{/* Если не найдено и в params указан путь (например /images/...) — используем его напрямую */}}
-          {{ if and (not $imgFound) $m.Params.image }}
-            <img src="{{ $m.Params.image }}" alt="{{ $m.Title }}" class="w-full h-40 object-cover rounded mb-3">
-          {{ end }}
+            <h3 class="font-semibold text-xl mb-2 text-gray-100">
+              {{ $p.Title }}
+            </h3>
 
-          <h3 class="font-semibold text-xl mb-2 group-hover:underline">{{ $m.Title }}</h3>
-          {{ with $m.Params.summary }}
-            <p class="text-gray-200">{{ . }}</p>
-          {{ else }}
-            <p class="text-gray-500">Краткое описание отсутствует</p>
-          {{ end }}
+            {{ with $p.Params.summary }}
+              <p class="text-gray-300">{{ . }}</p>
+            {{ end }}
 
-        </a>
+          </a>
 
+        {{ end }}
       {{ end }}
     </div>
 

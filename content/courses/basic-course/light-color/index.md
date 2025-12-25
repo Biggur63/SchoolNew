@@ -5,6 +5,7 @@ draft: false
 image: "cover.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
+summary: "О том, как светотень формирует изображение и на что влияют оттенки цвета"
 duration: "2 недели"
 module_number: 2
 parent_course: "basic-course"

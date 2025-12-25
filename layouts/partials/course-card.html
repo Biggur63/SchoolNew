@@ -1,68 +1,179 @@
-{{/* ---------------------------------------------------------
-   layouts/partials/course-card.html
-   Универсальный partial для карточки курса/module.
+{{/* layouts/partials/course-card.html
+   Универсальная карточка: одинаковое поведение hover/focus
+   для scenario A: <article class="course-card"> (courses)
+   и scenario B: <a>…<article class="course-card">…</article>…</a> (basic-course),
+   включая случаи с дополнительными контейнерами между <a> и .course-card.
+*/}}
 
-   Приоритет изображений:
-   1) page resource thumb* (bundle)
-   2) .Params.thumb
-   3) .Params.image
-   4) .Params.bg_image
-   5) плейсхолдер
----------------------------------------------------------- */}}
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-{{ .File.UniqueID }}">
 
-{{- $p := . -}}
+  <style>
+    /* ========== Базовые стили ========== */
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-{{/* Если нет названия — не рендерим карточку */}}
-{{- if not $p.Title }}
-  {{- return -}}
-{{- end }}
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
 
-<article class="bg-white rounded shadow overflow-hidden">
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
 
-  {{/* --- IMAGE BLOCK --- */}}
-  {{- $img := $p.Resources.GetMatch "thumb*" -}}
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
 
-  {{- if $img }}
-    <a href="{{ $p.RelPermalink }}" class="block">
-      <img src="{{ $img.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-    </a>
+    /* ========== Hover / focus (когда сам article получает hover/focus-within) ========== */
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
 
-  {{- else if $p.Params.thumb }}
-    <a href="{{ $p.RelPermalink }}" class="block">
-      <img src="{{ $p.Params.thumb }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-    </a>
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
 
-  {{- else if $p.Params.image }}
-    <a href="{{ $p.RelPermalink }}" class="block">
-      <img src="{{ $p.Params.image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-    </a>
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
 
-  {{- else if $p.Params.bg_image }}
-    <a href="{{ $p.RelPermalink }}" class="block">
-      <img src="{{ $p.Params.bg_image }}" alt="{{ $p.Title }}" class="w-full h-44 object-cover">
-    </a>
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
 
-  {{- else }}
-    <a href="{{ $p.RelPermalink }}" class="block">
-      <div class="w-full h-44 bg-gray-100 flex items-center justify-center text-gray-400">
+    /* ========== Универсальные селекторы: те же эффекты, когда любая ancestor <a> в состоянии hover/focus ==========
+       Используем descendant (a:hover .course-card), чтобы покрыть все вложенные структуры. */
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+    /* ========== Убрать подчёркивания, которые внешний <a> может навешивать ========== */
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+    /* на всякий случай убираем ::before/::after декоративные underlines */
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+    /* ========== Stretched link — только для courses ========== */
+    {{ if eq .Section "courses" }}
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    {{ end }}
+  </style>
+
+  <div class="card-inner">
+
+    {{/* Изображение */}}
+    {{ if .Resources.GetMatch "thumb*" }}
+      {{ $r := .Resources.GetMatch "thumb*" }}
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="{{ $r.RelPermalink }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+      </div>
+    {{ else if .Params.thumb }}
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="{{ .Params.thumb }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+      </div>
+    {{ else if .Params.image }}
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+      </div>
+    {{ else if .Params.bg_image }}
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="{{ .Params.bg_image }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+      </div>
+    {{ else }}
+      <div class="w-full h-44 bg-gray-100 flex items-center justify-center mb-3 text-gray-400 rounded thumb-img">
         Нет изображения
       </div>
-    </a>
-  {{- end }}
+    {{ end }}
 
-  {{/* --- TEXT BLOCK --- */}}
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="{{ $p.RelPermalink }}" class="hover:underline">{{ $p.Title }}</a>
+    {{/* Заголовок */}}
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      {{ .Title }}
     </h3>
 
-    {{- with $p.Params.summary }}
-      <p class="text-sm text-gray-600 mb-2">{{ . }}</p>
-    {{- end }}
+    {{/* Описание */}}
+    {{ with .Params.summary }}
+      <p class="card-summary mb-3">
+        {{ . }}
+      </p>
+    {{ end }}
 
-    {{- with $p.Params.duration }}
-      <p class="text-xs text-gray-500">Длительность: {{ . }}</p>
-    {{- end }}
-  </div>
+    {{/* level — не показываем в courses */}}
+    {{ if and .Params.level (ne .Section "courses") }}
+      <span class="inline-block text-sm px-2 py-1 rounded bg-gray-100 text-gray-700">
+        {{ .Params.level }}
+      </span>
+    {{ end }}
+
+  </div> <!-- .card-inner -->
+
+  {{/* stretched-link — только для courses */}}
+  {{ if eq .Section "courses" }}
+    <a
+      href="{{ .RelPermalink }}"
+      class="stretched-link"
+      aria-label="Открыть модуль «{{ .Title }}»">
+    </a>
+  {{ end }}
 
 </article>

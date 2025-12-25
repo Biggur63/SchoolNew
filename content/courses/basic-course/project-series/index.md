@@ -5,6 +5,7 @@ draft: false
 image: "cover.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
+summary: "Доведение съёмочной идеи до законченной формы: планирование, съёмка, отбор, обработка и презентация результата.."
 duration: "2 недели"
 module_number: 6
 parent_course: "basic-course"

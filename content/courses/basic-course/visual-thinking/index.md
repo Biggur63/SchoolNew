@@ -5,6 +5,7 @@ draft: false
 image: "cover.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
+summary: "Как читать кадр, формулировать идею серии и выстраивать её последовательность."
 duration: "2 недели"
 module_number: 5
 parent_course: "basic-course"

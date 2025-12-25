@@ -281,21 +281,154 @@
       <div class="w-full md:w-2/3 lg:w-1/2">
         
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-fdcc30aff82bd13d794f1d3a17dd127c">
 
-  
-    <a href="/courses/basic-course/" class="block">
-      <img src="/images/courses/basic-course/cover.jpg" alt="Базовый курс фотографии" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/basic-course/" class="hover:underline">Базовый курс фотографии</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/courses/basic-course/cover.jpg" alt="Базовый курс фотографии" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Базовый курс фотографии
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Все, от управления камерой до работы со светом и композицией. Индивидуальные занятия с преподавателем: практические задания и анализ результатов.</p>
-      <p class="text-xs text-gray-500">Длительность: 12 недель</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Все, от управления камерой до работы со светом и композицией. Индивидуальные занятия с преподавателем: практические задания и анализ результатов.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/basic-course/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Базовый курс фотографии»">
+    </a>
+  
 
 </article>
 
@@ -318,189 +451,1386 @@
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-0fc93c28468a229cf6bef0c5aa8cebfd">
 
-  
-    <a href="/courses/working-with-light/" class="block">
-      <img src="/images/modules/advanced-01.jpg" alt="Работа со светом" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/working-with-light/" class="hover:underline">Работа со светом</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-01.jpg" alt="Работа со светом" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Работа со светом
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Работа со светом, съёмка в сложных условиях.</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Работа со светом, съёмка в сложных условиях.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/working-with-light/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Работа со светом»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-be1dfbc331796ca0bc0658c73163537f">
 
-  
-    <a href="/courses/portrait/" class="block">
-      <img src="/images/modules/advanced-02.jpg" alt="Портрет" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/portrait/" class="hover:underline">Портрет</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-02.jpg" alt="Портрет" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Портрет
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Постановка света и поз, работа с моделями.</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Постановка света и поз, работа с моделями.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/portrait/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Портрет»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-376482e9d2884011d87a375330a16b2c">
 
-  
-    <a href="/courses/landscape-and-architecture/" class="block">
-      <img src="/images/modules/advanced-03.jpg" alt="Пейзаж и архитектура" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/landscape-and-architecture/" class="hover:underline">Пейзаж и архитектура</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-03.jpg" alt="Пейзаж и архитектура" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Пейзаж и архитектура
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Работа с разными фокусными расстояниями, поиск форм и линий в природе и городе.</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Работа с разными фокусными расстояниями, поиск форм и линий в природе и городе.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/landscape-and-architecture/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Пейзаж и архитектура»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-bdacf3c6cf9cb3d70d2096bfffb40ec5">
 
-  
-    <a href="/courses/reportage-and-street-photography/" class="block">
-      <img src="/images/modules/advanced-04.jpg" alt="Репортаж и уличная съемка" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/reportage-and-street-photography/" class="hover:underline">Репортаж и уличная съемка</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-04.jpg" alt="Репортаж и уличная съемка" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Репортаж и уличная съемка
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Принципы ненавязчивой съёмки, «быстрые решения» в улицах и событиях.</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Принципы ненавязчивой съёмки, «быстрые решения» в улицах и событиях.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/reportage-and-street-photography/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Репортаж и уличная съемка»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-6e38ec917578795a3410043d807eee92">
 
-  
-    <a href="/courses/subject-photography-1/" class="block">
-      <img src="/images/modules/advanced-05.jpg" alt="Предметная съемка I" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/subject-photography-1/" class="hover:underline">Предметная съемка I</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-05.jpg" alt="Предметная съемка I" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Предметная съемка I
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Брекетинг экспозиции, focus stacking</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Брекетинг экспозиции, focus stacking
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/subject-photography-1/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Предметная съемка I»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-d4b4189a74e2c98b5e1831ec9d95e79e">
 
-  
-    <a href="/courses/subject-photography-2/" class="block">
-      <img src="/images/modules/advanced-06.jpg" alt="Предметная съемка II" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/subject-photography-2/" class="hover:underline">Предметная съемка II</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-06.jpg" alt="Предметная съемка II" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Предметная съемка II
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Макросъемка, food-съемка, съемка для каталогов</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Макросъемка, food-съемка, съемка для каталогов
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/subject-photography-2/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Предметная съемка II»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-8e0b283e71530958c40330e9a05482ff">
 
-  
-    <a href="/courses/interior-photography/" class="block">
-      <img src="/images/modules/advanced-07.jpg" alt="Съемка интерьеров" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/interior-photography/" class="hover:underline">Съемка интерьеров</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-07.jpg" alt="Съемка интерьеров" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Съемка интерьеров
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Выбор ракурса, HDR-обработка.</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Выбор ракурса, HDR-обработка.
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/interior-photography/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Съемка интерьеров»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-d6f570cb91af75cf76a8eec8aadefcde">
 
-  
-    <a href="/courses/composition-and-framing/" class="block">
-      <img src="/images/modules/advanced-08.jpg" alt="Композиция и построение кадра" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/composition-and-framing/" class="hover:underline">Композиция и построение кадра</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-08.jpg" alt="Композиция и построение кадра" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Композиция и построение кадра
     </h3>
-      <p class="text-sm text-gray-600 mb-2">От отбора элементов до точного кадрирования и определения формата подачи</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        От отбора элементов до точного кадрирования и определения формата подачи
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/composition-and-framing/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Композиция и построение кадра»">
+    </a>
+  
 
 </article>
 
     
       
 
-<article class="bg-white rounded shadow overflow-hidden">
+<article class="course-card relative p-4 rounded border bg-white overflow-hidden transition" aria-labelledby="course-title-cb0c05899f940ccb50d54ec01f293482">
 
-  
-    <a href="/courses/visual-language-and-image-perception/" class="block">
-      <img src="/images/modules/advanced-09.jpg" alt="Визуальный язык и восприятие изображений" class="w-full h-44 object-cover">
-    </a>
+  <style>
+     
+    .course-card {
+      transition: border-color 180ms ease;
+    }
 
-  
-  <div class="p-4">
-    <h3 class="text-xl text-gray-600 font-semibold mb-1">
-      <a href="/courses/visual-language-and-image-perception/" class="hover:underline">Визуальный язык и восприятие изображений</a>
+    .card-inner {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      transform: translateY(0);
+    }
+
+    .thumb-img {
+      transition: transform 180ms ease;
+      transform-origin: center;
+    }
+
+    .card-title { color: #111827; text-decoration: none !important; }
+    .card-summary { color: #374151; text-decoration: none !important; }
+
+     
+    .course-card:hover .card-inner,
+    .course-card:focus-within .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    .course-card:hover .thumb-img,
+    .course-card:focus-within .thumb-img {
+      transform: scale(1.02);
+    }
+
+    .course-card:focus-within {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-inner,
+    a:focus .course-card .card-inner,
+    a:focus-within .course-card .card-inner {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.08),
+        0 4px 6px rgba(2,6,23,0.04);
+    }
+
+    a:hover .course-card,
+    a:focus .course-card,
+    a:focus-within .course-card {
+      border-color: rgba(79,70,229,0.25);
+    }
+
+    a:hover .course-card .thumb-img,
+    a:focus .course-card .thumb-img,
+    a:focus-within .course-card .thumb-img {
+      transform: scale(1.02);
+    }
+
+    a:focus .course-card,
+    a:focus-within .course-card {
+      outline: 3px solid rgba(79,70,229,0.85);
+      outline-offset: -3px;
+      border-radius: 8px;
+    }
+
+     
+    a:hover .course-card .card-title,
+    a:focus .course-card .card-title,
+    a:hover .course-card .card-summary,
+    a:focus .course-card .card-summary,
+    a:hover .course-card *,
+    a:focus .course-card * {
+      text-decoration: none !important;
+    }
+
+     
+    .course-card .card-title::before,
+    .course-card .card-title::after,
+    .course-card .card-summary::before,
+    .course-card .card-summary::after {
+      content: none !important;
+      text-decoration: none !important;
+    }
+
+     
+    
+    .course-card .stretched-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: block;
+      pointer-events: auto;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+    }
+    .course-card .stretched-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.95);
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+    
+  </style>
+
+  <div class="card-inner">
+
+    
+    
+      <div class="w-full h-44 mb-3 rounded overflow-hidden thumb-img">
+        <img src="/images/modules/advanced-09.jpg" alt="Визуальный язык и восприятие изображений" class="w-full h-full object-cover">
+      </div>
+    
+
+    
+    <h3 class="text-xl font-semibold mb-2 card-title">
+      Визуальный язык и восприятие изображений
     </h3>
-      <p class="text-sm text-gray-600 mb-2">Как изображение воздействует на зрителя: какие визуальные приёмы формируют смысл</p>
-      <p class="text-xs text-gray-500">Длительность: 2 недели</p>
-  </div>
+
+    
+    
+      <p class="card-summary mb-3">
+        Как изображение воздействует на зрителя: какие визуальные приёмы формируют смысл
+      </p>
+    
+
+    
+    
+
+  </div> 
+
+  
+  
+    <a
+      href="/courses/visual-language-and-image-perception/"
+      class="stretched-link"
+      aria-label="Открыть модуль «Визуальный язык и восприятие изображений»">
+    </a>
+  
 
 </article>
 

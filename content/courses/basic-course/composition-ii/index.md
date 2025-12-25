@@ -5,6 +5,7 @@ draft: false
 image: "cover.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
+summary: "О деликатных приёмах композиции: минимализм, работа с негативным пространством, ритмом и формой."
 duration: "2 недели"
 module_number: 4
 parent_course: "basic-course"

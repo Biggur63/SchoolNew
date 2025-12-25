@@ -5,6 +5,7 @@ draft: false
 image: "cover.jpg"
 bg_image: "/images/bg-courses.jpg"
 bg_dim: 0.7
+summary: "Узнайте как быстро и последовательно строить кадр: от выбора доминанты до управления планами и ракурсом."
 duration: "2 недели"
 module_number: 3
 parent_course: "basic-course"

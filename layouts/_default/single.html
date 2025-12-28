@@ -12,12 +12,20 @@
 
 <div class="container mx-auto px-4 py-8">
 
-  <a href="{{ $back }}" class="inline-block text-sm mb-4 hover:underline">
-    &larr; Назад
-  </a>
+  {{ if eq .Type "page" }}
+    <a href="{{ $back }}" class="inline-block text-sm mb-4 hover:underline">
+      &larr; Назад
+    </a>
+  {{ end }}
 
   <header class="mb-6">
-    <h1 class="text-3xl font-bold mb-3">{{ .Title }}</h1>
+    {{ with .Params.image }}
+      <figure class="mb-4">
+        <img src="{{ . }}" alt="{{ $.Title }}" class="w-full rounded">
+      </figure>
+    {{ end }}
+
+    <h1 class="text-3xl font-bold mb-4 text-gray-100">{{ .Title }}</h1>
 
     {{ with .Params.lead }}
       <p class="text-lg leading-relaxed text-gray-200 mb-4">
@@ -26,7 +34,7 @@
     {{ end }}
   </header>
 
-  <div class="prose max-w-none">
+  <div class="prose prose-invert max-w-none text-gray-100">
     {{ .Content }}
   </div>
 

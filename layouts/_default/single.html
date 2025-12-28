@@ -1,28 +1,44 @@
 ﻿{{ define "main" }}
 
 {{/* -----------------------------------------
-     Определяем ссылку "Назад"
+   Определение типа страницы
+------------------------------------------ */}}
+
+{{ $isModule := eq .Type "module" }}
+{{ $isBasicModule := and $isModule (eq .Params.parent_course "basic-course") }}
+
+{{/* -----------------------------------------
+   Ссылка "Назад"
+   Для модулей базового курса — всегда на страницу курса
 ------------------------------------------ */}}
 
 {{ $back := "/" }}
 
-{{ with .Parent }}
-  {{ $back = .RelPermalink }}
+{{ if $isBasicModule }}
+  {{ $back = printf "/courses/%s/" .Params.parent_course }}
+{{ else if .Parent }}
+  {{ $back = .Parent.RelPermalink }}
 {{ end }}
 
 <div class="container mx-auto px-4 py-8">
 
-  {{ if eq .Type "page" }}
-    <a href="{{ $back }}" class="inline-block text-sm mb-4 hover:underline">
-      &larr; Назад
-    </a>
-  {{ end }}
+  <a href="{{ $back }}" class="inline-block text-sm mb-4 hover:underline">
+    &larr; Назад
+  </a>
 
   <header class="mb-6">
+
+    {{/* -----------------------------------------
+       Картинку модуля НЕ показываем
+       для модулей базового курса
+    ------------------------------------------ */}}
+
     {{ with .Params.image }}
-      <figure class="mb-4">
-        <img src="{{ . }}" alt="{{ $.Title }}" class="w-full rounded">
-      </figure>
+      {{ if not $isBasicModule }}
+        <figure class="mb-4">
+          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full rounded">
+        </figure>
+      {{ end }}
     {{ end }}
 
     <h1 class="text-3xl font-bold mb-4 text-gray-100">{{ .Title }}</h1>
@@ -32,6 +48,7 @@
         {{ . }}
       </p>
     {{ end }}
+
   </header>
 
   <div class="prose prose-invert max-w-none text-gray-100">
